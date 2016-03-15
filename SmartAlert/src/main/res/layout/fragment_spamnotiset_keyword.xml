@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg4">
+
+    <include
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        layout="@layout/layout_notiset_action_bar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/noti_spam_set_state"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/STR_NOTI_SPAM_SET_TXT01"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/bg7"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="10"
+                android:textSize="15sp"
+                android:textColor="@color/bg7"
+                android:text="@string/STR_NOTI_SPAM_SET_KEYWORD_TXT01"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+        </LinearLayout>
+        <com.namleesin.smartalert.commonView.PullDownInputView
+            android:id="@+id/pulldownView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/tab_container"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/tab01"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/tab_01_disable"
+                    android:text="@string/STR_NOTI_TAB_TXT01"
+                    android:textColor="@color/bg6"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+                <Button
+                    android:id="@+id/tab02"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/tab_02_enable"
+                    android:text="@string/STR_NOTI_TAB_TXT02"
+                    android:textColor="@color/bg12"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </com.namleesin.smartalert.commonView.PullDownInputView>
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/bg6"
+            android:dividerHeight="1dp"
+            android:choiceMode="singleChoice"/>
+    </LinearLayout>
+</LinearLayout>

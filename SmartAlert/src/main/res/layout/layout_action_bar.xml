@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@color/bg1"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_weight="2" >
+
+        <ImageButton
+            android:id="@+id/menu_drawer_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="@null"
+            android:src="@drawable/ac_home_menu" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:src="@drawable/ac_home_bi" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@color/bg2"
+        android:gravity="center"
+        android:layout_weight="1" >
+
+        <ImageView
+            android:id="@+id/graph_btn"
+            android:layout_width="62dp"
+            android:layout_height="40dp"
+            android:src="@drawable/icon_graph" />
+    </LinearLayout>
+
+</LinearLayout>

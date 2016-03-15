@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:custom="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="#ffffff"
+	android:weightSum="10">
+
+	<com.namleesin.smartalert.commonView.ActionBarView
+		android:layout_width="match_parent"
+		android:layout_height="48dp"
+		custom:actionbarType="activity"
+		custom:actionbarTitle="@string/STR_ACTION_TITLE_TXT01">
+	</com.namleesin.smartalert.commonView.ActionBarView>
+
+	<ProgressBar
+		android:id="@+id/progressbar"
+		style="?android:attr/progressBarStyleHorizontal"
+		android:layout_width="match_parent"
+		android:layout_height="5dp"
+		android:background="@color/bg7"
+		android:progressDrawable="@xml/progress_color"
+		android:max="100"
+		android:progress="10"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+    	android:layout_height="0dp"
+    	android:orientation="vertical"
+		android:background="@color/bg7"
+		android:layout_weight="6">
+	    <com.jjoe64.graphview.GraphView
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp"
+	        android:layout_marginRight="5dp"
+	        android:layout_marginBottom="10dp"
+	        android:id="@+id/graph" />
+	</LinearLayout>
+
+    <LinearLayout
+		android:layout_width="match_parent"
+   		android:layout_height="0dp"
+   		android:orientation="vertical"
+		android:background="#ffffff"
+		android:gravity="center"
+		android:layout_weight="4">
+
+		<ListView
+			android:id="@+id/graphlistview"
+			android:layout_height="match_parent"
+			android:layout_width="match_parent"
+			android:divider="@color/bg6"
+			android:dividerHeight="1dp"
+			android:choiceMode="singleChoice"/>
+
+		<ProgressBar
+			android:id="@+id/emptyprogress"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			/>
+    </LinearLayout>
+</LinearLayout>

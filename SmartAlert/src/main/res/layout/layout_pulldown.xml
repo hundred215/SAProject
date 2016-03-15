@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/view_temp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+        <LinearLayout
+            android:id="@+id/inputbox"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:orientation="horizontal"
+            android:visibility="visible">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="3dp"
+                android:background="@drawable/grayborder">
+                <EditText
+                    android:id="@+id/keyword"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:background="@null"
+                    android:enabled="false"/>
+                <ImageButton
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/btn_spam_del" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/add_btn"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="5dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/btn_spam_add"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/handle"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/pulldown"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/btn_spam_pull"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:text="@string/STR_PULLDOWN_TXT01"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/close"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:clickable="true"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/btn_spam_close"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/bg2"
+                    android:textSize="18dp"
+                    android:text="@string/STR_COMM_BTN_CLOSE_TXT"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line2" />
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

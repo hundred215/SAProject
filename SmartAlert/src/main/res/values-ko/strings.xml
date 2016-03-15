@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Settings</string>
+    <string name="count" formatted="true"><font fgcolor="#034e6b">%d </font>/ %d</string>
+    <string name="title_activity_guide_mgr_activiy">GuideMgrActiviy</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_spam_setting">SpamSettingActivity</string>
+    <string name="title_activity_like_noti_setting">LikeNotiSettingActivity</string>
+    <string name="title_activity_spam_noti_setting">SpamNotiSettingActivity</string>
+    <string name="banner_ad_unit_id">ca-app-pub-6738646161258413/8938332082</string>
+
+    <string name="title_activity_main_guide">MainGuideActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="app_name">알림EDA</string>
+    <string name="STR_COMM_BTN_NEXT_TXT">다음</string>
+    <string name="STR_COMM_BTN_ALERTSET_TXT">알림 접근(액세스) 설정하기</string>
+    <string name="STR_COMM_BTN_SET_TXT">스팸 알림 설정</string>
+    <string name="STR_COMM_BTN_CLOSE_TXT">닫기</string>
+    <string name="STR_COMM_BTN_BLOCK_ON_TXT">차단 중</string>
+    <string name="STR_COMM_BTN_BLOCK_OFF_TXT">차단</string>
+
+    <string name="STR_ACTION_TITLE_TXT01">최근 한달 알림 그래프</string>
+    <string name="STR_ACTION_TITLE_TXT02">최근 한달동안 숨김 알림</string>
+
+    <string name="STR_GUIDE_01_TXT01">귀찮은 푸쉬 알림 차단</string>
+    <string name="STR_GUIDE_01_TXT02">잠금 화면 및 알림 바에 노출되었던 스팸 광고 및 메시지 등 귀찮게 하는 알림을 차단하세요.</string>
+    <string name="STR_GUIDE_01_TXT03">평상시 무분별하게 올리는 스팸 알림을 숨기고 지워도 끝없이 쌓이는 알림 바를 정리해 보세요.</string>
+
+    <string name="STR_GUIDE_02_TXT01">모아서 보는 관심 알림</string>
+    <string name="STR_GUIDE_02_TXT02">관심 키워드를 설정하여 필요한 알림은 모아서 볼 수 있습니다. 관심 있는 정보를 놓치지 마세요.</string>
+
+    <string name="STR_GUIDE_03_TXT01">프라버시 모드</string>
+    <string name="STR_GUIDE_03_TXT02">버튼 하나로 모든 알림을 차단하며, 회의나 모임이 있는 경우 프라이버시 모드를 이용해 보세요.</string>
+
+    <string name="STR_ALERT_SET_TXT01">알림 접근(액세스) 권한에서 똑똑한 알림을 선택해 주세요.</string>
+
+    <string name="STR_NOTI_TAB_TXT01">어플리케이션</string>
+    <string name="STR_NOTI_TAB_TXT02">키워드 추가</string>
+    <string name="STR_NOTI_SPAM_SET_TXT01">스팸 알림 설정</string>
+    <string name="STR_NOTI_SPAM_SET_APP_TXT01">잠금 화면 및 알림 바에 노출되었던 스팸 광고 및 메시지 등 귀찮게 하는 알림을 차단합니다.</string>
+    <string name="STR_NOTI_SPAM_SET_KEYWORD_TXT01">잠금 화면 및 알림 바에 노출되었던 스팸 광고 및 메시지 등 귀찮게 하는 알림을 차단합니다.</string>
+
+    <string name="STR_NOTI_LIKE_SET_TXT01">관심 알림 설정</string>
+    <string name="STR_NOTI_LIKE_SET_TXT02">키우드를 설정하여 관심 있는 알림을 모아 보세요!</string>
+    <string name="STR_NOTI_LIKE_SET_TXT03">똑똑한 알림 - 관심 키워드를 등록 해주세요.</string>
+
+    <string name="STR_MAIN_TXT01">스팸으로 차단된 알림이 없습니다.</string>
+    <string name="STR_MAIN_TXT02">더 보기</string>
+
+    <string name="STR_MAIN_GUIDE_TXT01">다시 보지 않기</string>
+
+    <string name="STR_DASH_TXT01">최근 한달 동안</string>
+    <string name="STR_DASH_TXT02">프라이버시 모드</string>
+    <string name="STR_DASH_TXT03">스팸알림</string>
+    <string name="STR_DASH_TXT04">관심알림</string>
+
+    <string name="STR_PULLDOWN_TXT01">여기를 아래로 당겨 키워드를 입력하세요</string>
+
+    <string name="STR_MENU_TXT01">제품 버전 : </string>
+    <string name="STR_MENU_TXT02">스팸 알림 설정</string>
+    <string name="STR_MENU_TXT03">관심 알림 설정</string>
+    <string name="STR_MENU_TXT04">제품 가이드</string>
+
+    <string name="STR_TOAST_TXT01">알림 정보가 없습니다.</string>
+    <string name="STR_TOAST_TXT02">스팸 알림 정보가 없습니다.</string>
+    <string name="STR_TOAST_TXT03">관심 알림 정보가 없습니다.</string>
+
+    <string name="STR_SPAM_KEYWORD" formatted="false">%s<![CDATA[<font color="#dd0000">%s</font>]]></string>
+    <string name="STR_LIKE_KEYWORD" formatted="false">%s<![CDATA[<font color="#288cdc">%s</font>]]></string>
+
+</resources>

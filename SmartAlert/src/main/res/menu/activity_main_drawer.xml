@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:icon="@drawable/menu01_icon"
+        android:id="@+id/menu1"
+        android:title="스팸 알림 설정"/>
+
+    <item
+        android:icon="@drawable/menu02_icon"
+        android:id="@+id/menu2"
+        android:title="관심 알림 설정" />
+
+    <item
+        android:id="@+id/menu3"
+        android:title="제품 가이드" />
+</menu>

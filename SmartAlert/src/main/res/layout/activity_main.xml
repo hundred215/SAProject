@@ -1,0 +1,126 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.ahnlab.smartalert.main.MainActivity">
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/menu_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <com.namleesin.smartalert.commonView.ActionBarView
+                android:id="@+id/actionbar"
+                custom:actionbarType="main"
+                custom:actionbarTitle="@string/app_name"
+                android:layout_width="match_parent"
+                android:layout_height="48dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <include
+                        android:id="@+id/main_dashboard"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="4"
+                        android:layout_gravity="top"
+                        layout="@layout/layout_main_dashboard"/>
+                    <View
+                        android:id="@+id/remain_area"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="5"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/overlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@color/bg4"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical">
+                    <ListView
+                        android:id="@+id/noti_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="bottom"
+                        android:layout_below="@+id/main_dashboard"
+                        android:divider="@color/line2"
+                        android:dividerHeight="0.5dp" />
+                    <LinearLayout
+                        android:id="@+id/emptytimelinelist"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textColor="@color/bg2"
+                            android:text="@string/STR_MAIN_TXT01"/>
+                        <Button
+                            android:id="@+id/openspambtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="67dp"
+                            android:layout_marginTop="42dp"
+                            android:layout_marginLeft="85dp"
+                            android:layout_marginRight="85dp"
+                            android:text="@string/STR_COMM_BTN_SET_TXT"
+                            android:textSize="18sp"
+                            android:textColor="@color/bg4"
+                            android:background="@xml/next_btn_selector"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/more_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@color/bg3"
+                        android:layout_gravity="bottom"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:clickable="true">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/btn_icon_up" />
+
+                        <TextView
+                            android:id="@+id/more_btn_txt"
+                            style="@style/fc6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/STR_MAIN_TXT02" />
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_main"
+            app:menu="@menu/activity_main_drawer" />
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>

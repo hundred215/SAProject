@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg1">#f5b537</color>
+    <color name="bg2">#034e6b</color>
+    <color name="bg3">#f6f8f9</color>
+    <color name="bg4">#ffffff</color>
+    <color name="bg5">#f7f7f7</color>
+    <color name="bg6">#dddddd</color>
+    <color name="bg7">#034662</color>
+    <color name="bg8">#ebeeef</color>
+    <color name="bg9">#f0f3f4</color>
+    <color name="bg10">#f7f7f7</color>
+    <color name="bg11">#dddddd</color>
+    <color name="bg12">#000000</color>
+    <color name="line1">#ffffff</color>
+    <color name="line2">#cdcdd2</color>
+    <color name="line3">#ffffff</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="spam_txt">#dd0000</color>
+    <color name="like_txt">#288cdc</color>
+</resources>
