@@ -26,6 +26,7 @@ import android.view.Window;
 import android.view.animation.Animation;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -78,21 +79,32 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		OpenActivity.startSplashScreenActivity(this);
 		mDBHandler = new DbHandler(this);
 		initView();
+
+		OpenActivity.startSplashScreenActivity(this);
 	}
 
 	@Override
 	protected void onResume()
 	{
 		super.onResume();
+
+		updatePrivacyModeIcon();
+
 		getSupportLoaderManager().initLoader(0, null, this).forceLoad();
 	}
 
 	@Override
 	public void onBackPressed()
 	{
+		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.menu_drawer);
+		if (drawer.isDrawerOpen(GravityCompat.START))
+		{
+			drawer.closeDrawer(GravityCompat.START);
+			return;
+		}
+
 		AdRequest adRequest = new AdRequest.Builder().build();
 		interstitialAd = new InterstitialAd(this);
 		interstitialAd.setAdUnitId(AD_UNIT_ID);
@@ -114,7 +126,7 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 			}
 		});
 
-		finish();
+		super.onBackPressed();
 	}
 
 	private void initView()
@@ -156,11 +168,9 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 		list.setEmptyView(lview);
 
 		Button openspambtn = (Button)findViewById(R.id.openspambtn);
-		openspambtn.setOnClickListener(new View.OnClickListener()
-		{
+		openspambtn.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View v)
-			{
+			public void onClick(View v) {
 				OpenActivity.openSpamSettingActivity(MainActivity.this, 0);
 			}
 		});
@@ -180,7 +190,6 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 		});
 
 		initDashboard();
-		initPrivacyMode();
 	}
 
 	private void initDashboard()
@@ -191,13 +200,10 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 
 		TextView total_view = (TextView)findViewById(R.id.total_noti_txt);
 		total_view.setText(total_cnt+"");
-		total_view.setOnClickListener(new View.OnClickListener()
-		{
+		total_view.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View view)
-			{
-				if(total_cnt == 0)
-				{
+			public void onClick(View view) {
+				if (total_cnt == 0) {
 					Toast.makeText(MainActivity.this, getString(R.string.STR_TOAST_TXT01), Toast.LENGTH_SHORT).show();
 					return;
 				}
@@ -213,28 +219,23 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 		spam_view.setText(spam_cnt+"");
 
 		TextView like_view = (TextView) findViewById(R.id.fav_cnt_txt);
-		like_view.setText(like_cnt+"");
+		like_view.setText(like_cnt + "");
 
 		mMainDashboardView = findViewById(R.id.main_dashboard);
 		mOverlay = (LinearLayout) findViewById(R.id.overlay);
 		View more_btn = findViewById(R.id.more_btn);
-		more_btn.setOnClickListener(new View.OnClickListener()
-		{
+		more_btn.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View v)
-			{
+			public void onClick(View v) {
 				mRemainLayout.getViewTreeObserver().removeOnGlobalLayoutListener(mLayoutListener);
 				View content = getWindow().findViewById(Window.ID_ANDROID_CONTENT);
 				float pixel = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 48, getResources().getDisplayMetrics());
-				if (mIsListExpanded == false)
-				{
+				if (mIsListExpanded == false) {
 					float dpHeight = content.getHeight() - pixel;
 					Animation ani = new GrowupAnimation(mOverlay, GrowupAnimation.MODE_GROW, mOverlayHeight, dpHeight);
 					mOverlay.startAnimation(ani);
 					mActionbar.setTitleType(ActionBarView.ACTIONBAR_TYPE_VIEW, "최근 한달동안 숨김 알림 앱 순위");
-				}
-				else
-				{
+				} else {
 					float dpHeight = content.getHeight() - pixel;
 					Animation ani = new GrowupAnimation(mOverlay, GrowupAnimation.MODE_SHRINK, dpHeight, mOverlayHeight);
 					mOverlay.startAnimation(ani);
@@ -265,13 +266,10 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 		});
 
 		View btn_like = mMainDashboardView.findViewById(R.id.btn_like);
-		btn_like.setOnClickListener(new View.OnClickListener()
-		{
+		btn_like.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View view)
-			{
-				if(like_cnt == 0)
-				{
+			public void onClick(View view) {
+				if (like_cnt == 0) {
 					Toast.makeText(MainActivity.this, getString(R.string.STR_TOAST_TXT03), Toast.LENGTH_SHORT).show();
 					return;
 				}
@@ -289,41 +287,44 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 
 	private void initPrivacyMode()
 	{
-		SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
-		int mode = pref.getInt(PrivacyMode.PREF_PRIVACY_MODE, -1);
-		final PrivacyMode privacyMode = new PrivacyMode();
+		PFMgr pfMgr = new PFMgr(this);
+		boolean initstate =pfMgr.getBooleanValue(PFValue.PRE_SHORTCUT_INIT, false);
+		if(false == initstate)
+		{
+			Intent i = new Intent(this, PrivacyMode.class);
+			startActivity(i);
+		}
 
-		ImageView privacy = (ImageView) findViewById(R.id.privacy_mode_img);
-		if(mode == PrivacyMode.PRIVACY_MODE_ON)
-		{
-			privacy.setImageResource(R.drawable.privacy_on_xxhdpi);
-		}
-		else if(mode == PrivacyMode.PRIVACY_MODE_OFF)
-		{
-			privacy.setImageResource(R.drawable.privacy_off_xxhdpi);
-		}
-		else
-		{
-			SharedPreferences.Editor editor = pref.edit();
-			editor.putInt(PrivacyMode.PREF_PRIVACY_MODE, PrivacyMode.PRIVACY_MODE_OFF);
-			editor.commit();
-			privacyMode.changePrivacyMode(MainActivity.this);
-		}
+		updatePrivacyModeIcon();
 
 		findViewById(R.id.privacy_mode_btn).setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View v) {
-				SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
-				int mode = pref.getInt(PrivacyMode.PREF_PRIVACY_MODE, -1);
+			public void onClick(View v)
+			{
+				CheckBox privacy = (CheckBox) findViewById(R.id.privacy_mode_img);
+				privacy.setChecked(!privacy.isChecked());
 
-				SharedPreferences.Editor editor = pref.edit();
-				if (mode == PrivacyMode.PRIVACY_MODE_ON) {
-					privacyMode.changePrivacyMode(MainActivity.this);
-				} else if (mode == PrivacyMode.PRIVACY_MODE_OFF) {
-					privacyMode.changePrivacyMode(MainActivity.this);
-				}
+				Intent i = new Intent(MainActivity.this, PrivacyMode.class);
+				startActivity(i);
 			}
 		});
+	}
+
+	private void updatePrivacyModeIcon()
+	{
+		PFMgr pfMgr = new PFMgr(this);
+		int mode = pfMgr.getIntValue(PrivacyMode.PREF_PRIVACY_MODE, PrivacyMode.PRIVACY_MODE_OFF);
+		CheckBox privacy = (CheckBox) findViewById(R.id.privacy_mode_img);
+		if(mode == PrivacyMode.PRIVACY_MODE_ON)
+		{
+			privacy.setChecked(true);
+			//privacy.setImageResource(R.drawable.privacy_on);
+		}
+		else //mode == PrivacyMode.PRIVACY_MODE_OFF
+		{
+			privacy.setChecked(false);
+			//privacy.setImageResource(R.drawable.privacy_off);
+		}
 	}
 
 	@Override
@@ -397,6 +398,8 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 				pmgr.setIntValue(PFValue.PRE_INIT_STATE, PFValue.PRE_INIT_SETTING_OK);
 
 				openGuideMainActivity();
+
+				initPrivacyMode();
 				break;
 			default:
 				break;
@@ -437,6 +440,8 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 					OpenActivity.startAlertSettingActivity(this);
 				}
 				openGuideMainActivity();
+
+				initPrivacyMode();
 				break;
 			default:
 				break;

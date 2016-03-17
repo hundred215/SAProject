@@ -13,5 +13,7 @@ public class PFValue
     public static final int PRE_INIT_ALERT_OK			= 2;
     public static final int PRE_INIT_SETTING_OK		= 3;
     public static final int PRE_INIT_SUCCESS			= 4;
+
+    public static final String PRE_SHORTCUT_INIT        = "pre_shortcut_init";
 }
 

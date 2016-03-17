@@ -13,6 +13,7 @@
         android:title="관심 알림 설정" />
 
     <item
+        android:icon="@drawable/menu03_icon"
         android:id="@+id/menu3"
         android:title="제품 가이드" />
 </menu>

@@ -2,6 +2,7 @@ package com.namleesin.smartalert.timeline;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.provider.CalendarContract;
 import android.text.Spannable;

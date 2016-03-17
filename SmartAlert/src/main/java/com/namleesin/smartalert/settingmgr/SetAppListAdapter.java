@@ -1,6 +1,7 @@
 package com.namleesin.smartalert.settingmgr;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.namleesin.smartalert.R;
 import com.namleesin.smartalert.data.PackData;
 import com.namleesin.smartalert.dbmgr.DBValue;
 import com.namleesin.smartalert.dbmgr.DbHandler;
+import com.namleesin.smartalert.notimgr.NotificationListener;
 
 import java.util.ArrayList;
 
@@ -101,6 +103,9 @@ public class SetAppListAdapter extends BaseAdapter
                     buttonView.setChecked(true);
                     handler.insertDB(DBValue.TYPE_INSERT_PACKAGEFILTER, packdata);
                 }
+
+                Intent update = new Intent(NotificationListener.UPDATE_FILTER);
+                mContext.sendBroadcast(update);
             }
         });
 

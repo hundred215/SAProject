@@ -1,6 +1,7 @@
 package com.namleesin.smartalert.graph;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.util.Log;
@@ -20,6 +21,7 @@ import com.namleesin.smartalert.R;
 import com.namleesin.smartalert.data.PackData;
 import com.namleesin.smartalert.dbmgr.DBValue;
 import com.namleesin.smartalert.dbmgr.DbHandler;
+import com.namleesin.smartalert.notimgr.NotificationListener;
 import com.namleesin.smartalert.settingmgr.ListViewItem;
 
 import java.util.ArrayList;
@@ -125,6 +127,9 @@ public class GraphListViewAdapter extends BaseAdapter
                     handler.deleteDB(DBValue.TYPE_DELETE_FILTER_APP, packdata);
                     checkstate.setChecked(false);
                 }
+
+                Intent update = new Intent(NotificationListener.UPDATE_FILTER);
+                mContext.sendBroadcast(update);
             }
         });
 
