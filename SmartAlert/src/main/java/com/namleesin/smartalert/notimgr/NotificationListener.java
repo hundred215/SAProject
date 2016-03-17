@@ -184,6 +184,13 @@ public class NotificationListener extends NotificationListenerService
 		notiData.notikey = sbn.getKey();
 		notiData.packagename = sbn.getPackageName();
 
+		if(noti.flags == Notification.FLAG_ONGOING_EVENT ||
+				noti.flags == Notification.FLAG_FOREGROUND_SERVICE ||
+				noti.flags == Notification.FLAG_AUTO_CANCEL)
+		{
+			return;
+		}
+
 		notiData.titletxt = noti.extras.getString(Notification.EXTRA_TITLE);
 
 		String notiText = "";
