@@ -1,6 +1,8 @@
 package com.namleesin.smartalert.data;
 
-public class NotiData 
+import android.graphics.Bitmap;
+
+public class NotiData
 {
 	public String packagename = null;
 	public String titletxt = null;
@@ -11,4 +13,5 @@ public class NotiData
 	public int status = 0;
 	public String filter_word = null;
 	public int urlstatus = 0;
+	public Bitmap largebitmap = null;
 }

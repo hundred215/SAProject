@@ -51,7 +51,7 @@ import com.namleesin.smartalert.utils.PFValue;
 
 
 public class MainActivity extends FragmentActivity implements LoaderCallbacks<ArrayList<NotiInfoData>>, NavigationView.OnNavigationItemSelectedListener {
-	private final String AD_UNIT_ID = "ca-app-pub-6738646161258413/2235663683";
+	private final String AD_UNIT_ID = "ca-app-pub-1698382082790983/2052368153";
 	private InterstitialAd interstitialAd = null;
 
 	private DbHandler mDBHandler;

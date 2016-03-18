@@ -147,7 +147,7 @@ public class TimelineListAdapter extends BaseAdapter {
             if(mAdView == null) {
                 mAdView = new AdView(mCtx);
                 mAdView.setAdSize(AdSize.BANNER);
-                mAdView.setAdUnitId(mCtx.getString(R.string.banner_ad_unit_id));
+                mAdView.setAdUnitId(mCtx.getString(R.string.banner_ad_unit_id1));
                 AdRequest adRequest = new AdRequest.Builder()
                         .build();
                 mAdView.loadAd(adRequest);

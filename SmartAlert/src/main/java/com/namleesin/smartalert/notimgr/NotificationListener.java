@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
@@ -24,7 +25,6 @@ import com.namleesin.smartalert.utils.PFMgr;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-@TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
 public class NotificationListener extends NotificationListenerService
 {
 	public static String UPDATE_FILTER = "update_filter";
@@ -135,12 +135,13 @@ public class NotificationListener extends NotificationListenerService
 		unregisterReceiver(mFilterUpdateReceiver);
 	}
 
+	@SuppressLint("NewApi")
 	@Override
-	public void onNotificationRemoved(StatusBarNotification sbn) 
+	public void onNotificationRemoved(StatusBarNotification sbn)
 	{
 		super.onNotificationRemoved(sbn);
 	}
-	
+
 	public String getLikeFilter(String str)
 	{
 		for(KeywordData word : mFilterKeyword.get(DBValue.STATUS_LIKE))
@@ -171,7 +172,6 @@ public class NotificationListener extends NotificationListenerService
 		return false;
 	}
 
-	@SuppressLint("NewApi")
 	@Override
 	public void onNotificationPosted(StatusBarNotification sbn)
 	{
@@ -185,9 +185,9 @@ public class NotificationListener extends NotificationListenerService
 
 		NotiData notiData = new NotiData();
 		notiData.notiid = sbn.getId()+"";
-		notiData.notikey = sbn.getKey();
 		notiData.packagename = sbn.getPackageName();
 		notiData.titletxt = noti.extras.getString(Notification.EXTRA_TITLE);
+		//notiData.largebitmap =
 
 		String notiText = "";
 
@@ -230,7 +230,14 @@ public class NotificationListener extends NotificationListenerService
 			notiData.status = DBValue.STATUS_DISLIKE;
 			handler.insertDB(DBValue.TYPE_INSERT_NOTIINFO, notiData);
 
-			cancelNotification(sbn.getKey());
+			if(Build.VERSION.SDK_INT < 21)
+			{
+				cancelNotification(sbn.getPackageName(), sbn.getTag(), sbn.getId());
+			}
+			else
+			{
+				cancelNotification(sbn.getKey());
+			}
 			return;
 		}
 
@@ -241,7 +248,14 @@ public class NotificationListener extends NotificationListenerService
 			notiData.filter_word = dislike;
 			handler.insertDB(DBValue.TYPE_INSERT_NOTIINFO, notiData);
 
-			cancelNotification(sbn.getKey());
+			if(Build.VERSION.SDK_INT < 21)
+			{
+				cancelNotification(sbn.getPackageName(), sbn.getTag(), sbn.getId());
+			}
+			else
+			{
+				cancelNotification(sbn.getKey());
+			}
 			return;
 		}
 

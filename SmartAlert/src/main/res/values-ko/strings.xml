@@ -7,7 +7,9 @@
     <string name="title_activity_spam_setting">SpamSettingActivity</string>
     <string name="title_activity_like_noti_setting">LikeNotiSettingActivity</string>
     <string name="title_activity_spam_noti_setting">SpamNotiSettingActivity</string>
-    <string name="banner_ad_unit_id">ca-app-pub-6738646161258413/8938332082</string>
+    <string name="banner_ad_unit_id1">ca-app-pub-1698382082790983/3529101353</string>
+    <string name="banner_ad_unit_id2">ca-app-pub-1698382082790983/5005834559</string>
+    <string name="banner_ad_unit_id3">ca-app-pub-1698382082790983/7959300954</string>
 
     <string name="title_activity_main_guide">MainGuideActivity</string>
     <string name="dummy_button">Dummy Button</string>
