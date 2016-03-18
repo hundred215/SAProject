@@ -33,7 +33,7 @@
         android:id="@+id/graph_btn"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:background="@color/bg2"
+        android:background="@xml/dash_bg_selector"
         android:gravity="center"
         android:layout_weight="1"
         android:clickable="true">
@@ -41,6 +41,6 @@
         <ImageView
             android:layout_width="62dp"
             android:layout_height="40dp"
-            android:src="@drawable/icon_graph" />
+            android:src="@xml/graph_btn_selector" />
     </LinearLayout>
 </LinearLayout>

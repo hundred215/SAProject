@@ -13,5 +13,5 @@ public class NotiData
 	public int status = 0;
 	public String filter_word = null;
 	public int urlstatus = 0;
-	public Bitmap largebitmap = null;
+	public Bitmap picturebitmap = null;
 }

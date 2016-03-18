@@ -12,6 +12,7 @@
         custom:actionbarType="activity"
         custom:actionbarTitle="@string/STR_ACTION_TITLE_TXT02">
     </com.namleesin.smartalert.commonView.ActionBarView>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

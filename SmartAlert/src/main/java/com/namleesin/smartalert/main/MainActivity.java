@@ -226,16 +226,22 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 		View more_btn = findViewById(R.id.more_btn);
 		more_btn.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View v) {
+			public void onClick(View v)
+			{
 				mRemainLayout.getViewTreeObserver().removeOnGlobalLayoutListener(mLayoutListener);
 				View content = getWindow().findViewById(Window.ID_ANDROID_CONTENT);
 				float pixel = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 48, getResources().getDisplayMetrics());
-				if (mIsListExpanded == false) {
+				if (mIsListExpanded == false)
+				{
+					Log.d("namjinha","mIsListExpanded = false");
 					float dpHeight = content.getHeight() - pixel;
 					Animation ani = new GrowupAnimation(mOverlay, GrowupAnimation.MODE_GROW, mOverlayHeight, dpHeight);
 					mOverlay.startAnimation(ani);
 					mActionbar.setTitleType(ActionBarView.ACTIONBAR_TYPE_VIEW, "최근 한달동안 숨김 알림 앱 순위");
-				} else {
+				}
+				else
+				{
+					Log.d("namjinha","mIsListExpanded = true");
 					float dpHeight = content.getHeight() - pixel;
 					Animation ani = new GrowupAnimation(mOverlay, GrowupAnimation.MODE_SHRINK, dpHeight, mOverlayHeight);
 					mOverlay.startAnimation(ani);

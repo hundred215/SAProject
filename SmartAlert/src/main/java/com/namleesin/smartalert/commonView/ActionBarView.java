@@ -63,6 +63,7 @@ public class ActionBarView extends LinearLayout implements View.OnClickListener{
     public void initView(int type, String title)
     {
         View main = mInflater.inflate(getLayoutResource(type), this, false);
+        this.removeAllViews();
         if(main != null) {
             addView(main);
         }
@@ -77,6 +78,8 @@ public class ActionBarView extends LinearLayout implements View.OnClickListener{
                 main.findViewById(R.id.back_arrow).setOnClickListener(this);
                 break;
             case ACTIONBAR_TYPE_VIEW:
+                main.findViewById(R.id.back_arrow).setOnClickListener(this);
+                break;
             case ACTIONBAR_TYPE_WIZARD:
                 break;
         }

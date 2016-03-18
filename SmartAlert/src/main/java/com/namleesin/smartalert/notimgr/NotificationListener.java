@@ -8,9 +8,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.os.Build;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
@@ -187,7 +185,8 @@ public class NotificationListener extends NotificationListenerService
 		notiData.notiid = sbn.getId()+"";
 		notiData.packagename = sbn.getPackageName();
 		notiData.titletxt = noti.extras.getString(Notification.EXTRA_TITLE);
-		//notiData.largebitmap =
+		//Noti 이미지 가져오는 방법
+		//notiData.picturebitmap = (Bitmap) sbn.getNotification().extras.get(Notification.EXTRA_PICTURE);
 
 		String notiText = "";
 
