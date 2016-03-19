@@ -52,7 +52,8 @@
     <string name="STR_NOTI_LIKE_SET_TXT03">똑똑한 알림 - 관심 키워드를 등록 해주세요.</string>
 
     <string name="STR_MAIN_TXT01">스팸으로 차단된 알림이 없습니다.</string>
-    <string name="STR_MAIN_TXT02">더 보기</string>
+    <string name="STR_MAIN_TXT02">더보기</string>
+    <string name="STR_MAIN_TXT03">내리기</string>
 
     <string name="STR_MAIN_GUIDE_TXT01">다시 보지 않기</string>
 

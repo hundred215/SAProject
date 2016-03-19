@@ -68,8 +68,9 @@ public class TimelineListAdapter extends BaseAdapter {
         if(mDataArray.size() == 0)
             return 0;
 
-        int cnt = mDataArray.size()%5;
-        return mDataArray.size() + ((cnt == 0)?(mDataArray.size()/5):(mDataArray.size()/5) + 1);
+        //int cnt = mDataArray.size()%5;
+        //return mDataArray.size() + ((cnt == 0)?(mDataArray.size()/5):(mDataArray.size()/5) + 1);
+        return mDataArray.size() + mAddedCnt;
     }
 
     @Override
@@ -86,10 +87,15 @@ public class TimelineListAdapter extends BaseAdapter {
     {
         if(mTypeArray.size() < position + 1 )
         {
-            if((position + mAddedCnt) % 6 == 1)
+            if((position + 0) % 6 == 1)
+            {
+                mAddedCnt++;
                 mTypeArray.put(position, TYPE_ADD);
+            }
             else
+            {
                 mTypeArray.put(position, TYPE_ITEM);
+            }
         }
 
         return mTypeArray.get(position);

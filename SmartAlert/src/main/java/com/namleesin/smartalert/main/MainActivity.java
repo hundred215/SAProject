@@ -98,6 +98,12 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 	@Override
 	public void onBackPressed()
 	{
+		if (mIsListExpanded == true)
+		{
+			handleMore();
+			return;
+		}
+
 		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.menu_drawer);
 		if (drawer.isDrawerOpen(GravityCompat.START))
 		{
@@ -162,6 +168,15 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 			}
 		});
 
+		mActionbar.setOnFinishButtonListener(new View.OnClickListener()
+		{
+			@Override
+			public void onClick(View v)
+			{
+				handleMore();
+			}
+		});
+
 		mAdapter = new NotiDataListAdapter(this);
 		ListView list = (ListView)findViewById(R.id.noti_list);
 		LinearLayout lview = (LinearLayout)findViewById(R.id.emptytimelinelist);
@@ -216,7 +231,7 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 		});
 
 		TextView spam_view = (TextView) findViewById(R.id.spam_cnt_txt);
-		spam_view.setText(spam_cnt+"");
+		spam_view.setText(spam_cnt + "");
 
 		TextView like_view = (TextView) findViewById(R.id.fav_cnt_txt);
 		like_view.setText(like_cnt + "");
@@ -228,27 +243,7 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 			@Override
 			public void onClick(View v)
 			{
-				mRemainLayout.getViewTreeObserver().removeOnGlobalLayoutListener(mLayoutListener);
-				View content = getWindow().findViewById(Window.ID_ANDROID_CONTENT);
-				float pixel = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 48, getResources().getDisplayMetrics());
-				if (mIsListExpanded == false)
-				{
-					Log.d("namjinha","mIsListExpanded = false");
-					float dpHeight = content.getHeight() - pixel;
-					Animation ani = new GrowupAnimation(mOverlay, GrowupAnimation.MODE_GROW, mOverlayHeight, dpHeight);
-					mOverlay.startAnimation(ani);
-					mActionbar.setTitleType(ActionBarView.ACTIONBAR_TYPE_VIEW, "최근 한달동안 숨김 알림 앱 순위");
-				}
-				else
-				{
-					Log.d("namjinha","mIsListExpanded = true");
-					float dpHeight = content.getHeight() - pixel;
-					Animation ani = new GrowupAnimation(mOverlay, GrowupAnimation.MODE_SHRINK, dpHeight, mOverlayHeight);
-					mOverlay.startAnimation(ani);
-					mActionbar.setTitleType(ActionBarView.ACTIONBAR_TYPE_MAIN, null);
-				}
-
-				mIsListExpanded = !mIsListExpanded;
+				handleMore();
 			}
 		});
 
@@ -289,6 +284,34 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 
 		mRemainLayout = findViewById(R.id.remain_area);
 		mRemainLayout.getViewTreeObserver().addOnGlobalLayoutListener(mLayoutListener);
+	}
+
+	private void handleMore()
+	{
+		CheckBox checkBox = (CheckBox)findViewById(R.id.chkmore);
+		TextView textView = (TextView)findViewById(R.id.more_btn_txt);
+		mRemainLayout.getViewTreeObserver().removeOnGlobalLayoutListener(mLayoutListener);
+		View content = getWindow().findViewById(Window.ID_ANDROID_CONTENT);
+		float pixel = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 48, getResources().getDisplayMetrics());
+		if (mIsListExpanded == false)
+		{
+			float dpHeight = content.getHeight() - pixel;
+			Animation ani = new GrowupAnimation(mOverlay, GrowupAnimation.MODE_GROW, mOverlayHeight, dpHeight);
+			mOverlay.startAnimation(ani);
+			mActionbar.setTitleType(ActionBarView.ACTIONBAR_TYPE_VIEW, "최근 한달동안 숨김 알림 앱 순위");
+			checkBox.setChecked(true);
+			textView.setText(getString(R.string.STR_MAIN_TXT03));
+		}
+		else
+		{
+			float dpHeight = content.getHeight() - pixel;
+			Animation ani = new GrowupAnimation(mOverlay, GrowupAnimation.MODE_SHRINK, dpHeight, mOverlayHeight);
+			mOverlay.startAnimation(ani);
+			mActionbar.setTitleType(ActionBarView.ACTIONBAR_TYPE_MAIN, null);
+			checkBox.setChecked(false);
+			textView.setText(getString(R.string.STR_MAIN_TXT02));
+		}
+		mIsListExpanded = !mIsListExpanded;
 	}
 
 	private void initPrivacyMode()

@@ -91,15 +91,19 @@
                         android:id="@+id/more_btn"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
-                        android:background="@color/bg3"
+                        android:background="@xml/more_bg_selector"
                         android:layout_gravity="bottom"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:clickable="true">
-                        <ImageView
+                        <CheckBox
+                            android:id="@+id/chkmore"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/btn_icon_up" />
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:button="@xml/more_btn_selector" />
 
                         <TextView
                             android:id="@+id/more_btn_txt"
