@@ -2,12 +2,22 @@
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item 
-        android:drawable="@drawable/privacy_off"
+        android:drawable="@drawable/icon_privacy_mode_off"
         android:state_checked="false"
+        android:state_enabled="true"/>
+
+    <item
+        android:drawable="@drawable/icon_privacy_mode_off_pre"
+        android:state_pressed="true"
         android:state_enabled="true"/>
     
     <item 
-        android:drawable="@drawable/privacy_on"
+        android:drawable="@drawable/icon_privacy_mode"
         android:state_checked="true"
+        android:state_enabled="true"/>
+
+    <item
+        android:drawable="@drawable/icon_privacy_mode_pressed"
+        android:state_pressed="true"
         android:state_enabled="true"/>
 </selector>

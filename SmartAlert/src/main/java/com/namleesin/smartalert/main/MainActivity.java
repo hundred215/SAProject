@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentActivity;
@@ -13,11 +11,8 @@ import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.Loader;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.DrawerLayout.DrawerListener;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +23,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -85,11 +79,22 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 		OpenActivity.startSplashScreenActivity(this);
 	}
 
-	private void updateTotalCount()
+	private void updateCounts()
 	{
 		int total = mDBHandler.selectCountDB(DBValue.TYPE_SELECT_TOTAL_COUNT, null);
+		int spam_cnt = mDBHandler.selectCountDB(DBValue.TYPE_SELECT_DISLIKE_COUNT, null);
+		int like_cnt = mDBHandler.selectCountDB(DBValue.TYPE_SELECT_LIKE_COUNT, null);
+
 		TextView total_view = (TextView) findViewById(R.id.total_noti_txt);
 		total_view.setText(total + "");
+
+
+		TextView spam_view = (TextView) findViewById(R.id.spam_cnt_txt);
+		spam_view.setText(spam_cnt + "");
+
+		TextView like_view = (TextView) findViewById(R.id.fav_cnt_txt);
+		like_view.setText(like_cnt + "");
+
 	}
 
 	@Override
@@ -100,7 +105,7 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 		updatePrivacyModeIcon();
 
 		getSupportLoaderManager().initLoader(0, null, this).forceLoad();
-		updateTotalCount();
+		updateCounts();
 	}
 
 	@Override
@@ -217,15 +222,16 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 
 	private void initDashboard()
 	{
-		final int total_cnt = mDBHandler.selectCountDB(DBValue.TYPE_SELECT_TOTAL_COUNT, null);
-		final int spam_cnt = mDBHandler.selectCountDB(DBValue.TYPE_SELECT_DISLIKE_COUNT, null);
-		final int like_cnt = mDBHandler.selectCountDB(DBValue.TYPE_SELECT_LIKE_COUNT, null);
+		int total_cnt = mDBHandler.selectCountDB(DBValue.TYPE_SELECT_TOTAL_COUNT, null);
+		int spam_cnt = mDBHandler.selectCountDB(DBValue.TYPE_SELECT_DISLIKE_COUNT, null);
+		int like_cnt = mDBHandler.selectCountDB(DBValue.TYPE_SELECT_LIKE_COUNT, null);
 
 		TextView total_view = (TextView)findViewById(R.id.total_noti_txt);
 		total_view.setText(total_cnt+"");
 		total_view.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
+				int total_cnt = mDBHandler.selectCountDB(DBValue.TYPE_SELECT_TOTAL_COUNT, null);
 				if (total_cnt == 0) {
 					Toast.makeText(MainActivity.this, getString(R.string.STR_TOAST_TXT01), Toast.LENGTH_SHORT).show();
 					return;
@@ -261,6 +267,7 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 			@Override
 			public void onClick(View view)
 			{
+				int spam_cnt = mDBHandler.selectCountDB(DBValue.TYPE_SELECT_DISLIKE_COUNT, null);
 				if(spam_cnt == 0)
 				{
 					Toast.makeText(MainActivity.this, getString(R.string.STR_TOAST_TXT02), Toast.LENGTH_SHORT).show();
@@ -278,6 +285,7 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 		btn_like.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
+				int like_cnt = mDBHandler.selectCountDB(DBValue.TYPE_SELECT_LIKE_COUNT, null);
 				if (like_cnt == 0) {
 					Toast.makeText(MainActivity.this, getString(R.string.STR_TOAST_TXT03), Toast.LENGTH_SHORT).show();
 					return;
