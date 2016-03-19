@@ -54,15 +54,15 @@ public class TimeLineActivity extends FragmentActivity implements LoaderManager.
                 break;
             case TYPE_FAVORITE:
                 queryType = DBValue.TYPE_SELECT_LIKE_PKG_INFO;
-                actionbar.setTitleType(ActionBarView.ACTIONBAR_TYPE_TIMELINE, getString(R.string.STR_ACTION_TITLE_TXT03));
+                actionbar.setTitleText(getString(R.string.STR_ACTION_TITLE_TXT03));
                 break;
             case TYPE_HATE:
                 queryType = DBValue.TYPE_SELECT_DISLIKE_PKG_INFO;
-                actionbar.setTitleType(ActionBarView.ACTIONBAR_TYPE_TIMELINE, getString(R.string.STR_ACTION_TITLE_TXT02));
+                actionbar.setTitleText(getString(R.string.STR_ACTION_TITLE_TXT02));
                 break;
             default:
                 queryType = DBValue.TYPE_SELECT_NOTI_INFO;
-                actionbar.setTitleType(ActionBarView.ACTIONBAR_TYPE_TIMELINE, getString(R.string.STR_ACTION_TITLE_TXT01));
+                actionbar.setTitleText(getString(R.string.STR_ACTION_TITLE_TXT01));
                 break;
         }
 

@@ -1,6 +1,7 @@
 package com.namleesin.smartalert.timeline;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.text.Spannable;
@@ -23,6 +24,7 @@ import com.namleesin.smartalert.dbmgr.DBValue;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 /**
  * Created by comus1200 on 2015. 12. 30..
@@ -36,6 +38,7 @@ public class TimelineListAdapter extends BaseAdapter {
         TextView mContentTv;
         TextView mAppnameTv;
         ImageView mIconIv;
+        String mPkgName;
     }
 
     private final int TYPE_ADD  = 1;
@@ -68,9 +71,8 @@ public class TimelineListAdapter extends BaseAdapter {
         if(mDataArray.size() == 0)
             return 0;
 
-        //int cnt = mDataArray.size()%5;
-        //return mDataArray.size() + ((cnt == 0)?(mDataArray.size()/5):(mDataArray.size()/5) + 1);
-        return mDataArray.size() + mAddedCnt;
+        int cnt = mDataArray.size()%5;
+        return mDataArray.size() + ((cnt == 0)?(mDataArray.size()/5):(mDataArray.size()/5) + 1);
     }
 
     @Override
@@ -87,15 +89,10 @@ public class TimelineListAdapter extends BaseAdapter {
     {
         if(mTypeArray.size() < position + 1 )
         {
-            if((position + 0) % 6 == 1)
-            {
-                mAddedCnt++;
+            if((position + mAddedCnt) % 6 == 1)
                 mTypeArray.put(position, TYPE_ADD);
-            }
             else
-            {
                 mTypeArray.put(position, TYPE_ITEM);
-            }
         }
 
         return mTypeArray.get(position);
@@ -103,7 +100,7 @@ public class TimelineListAdapter extends BaseAdapter {
 
     private int getItemIndex(int position)
     {
-        int index = position / 7 + 1;
+        int index = position/6 + 1;
         if(position > 0)
             return position - index;
         return position;
@@ -111,7 +108,6 @@ public class TimelineListAdapter extends BaseAdapter {
 
     private Spannable getContentWithColor(int type, String content, String word)
     {
-        String contentWitColor = null;
         int index = 0;
         ForegroundColorSpan colorSpan;
 
@@ -141,6 +137,14 @@ public class TimelineListAdapter extends BaseAdapter {
         return coloredStr;
     }
 
+    private String getAdsString()
+    {
+        String[] id_array = mCtx.getResources().getStringArray(R.array.ads_ids);
+        Random random = new Random();
+        int idx = random.nextInt()%3;
+        return id_array[(idx<0)?0:idx];
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -149,13 +153,12 @@ public class TimelineListAdapter extends BaseAdapter {
             if(mAdView == null) {
                 mAdView = new AdView(mCtx);
                 mAdView.setAdSize(AdSize.BANNER);
-                mAdView.setAdUnitId(mCtx.getString(R.string.banner_ad_unit_id1));
+                mAdView.setAdUnitId(getAdsString());
                 AdRequest adRequest = new AdRequest.Builder()
                         .build();
                 mAdView.loadAd(adRequest);
                 mAdView.setTag(position);
             }
-
             return mAdView;
         }
 
@@ -191,6 +194,7 @@ public class TimelineListAdapter extends BaseAdapter {
             holder.mStatusIv.setBackgroundResource(R.drawable.timeline_noti);
         }
 
+        holder.mPkgName = timeData.pkgName;
         String date = timeData.getDate();
         if(date != null) {
             long dateLong = Long.valueOf(date);
@@ -216,6 +220,14 @@ public class TimelineListAdapter extends BaseAdapter {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ViewHolder holder = (ViewHolder) v.getTag();
+                Intent intent = mPkgMgr.getLaunchIntentForPackage(holder.mPkgName);
+                mCtx.startActivity(intent);
+            }
+        });
         return convertView;
     }
 }

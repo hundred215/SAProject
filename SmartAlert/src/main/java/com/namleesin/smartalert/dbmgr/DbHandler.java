@@ -47,7 +47,7 @@ public class DbHandler
 				cursor = mDbManager.query(DBValue.SQL_SELECT_LIKE_COUNT, null);
 				break;
 			case DBValue.TYPE_SELECT_DISLIKE_PACKAGE_COUNT:
-				cursor = mDbManager.query(DBValue.SQL_SELECT_DISLIKE_PACKAGE_COUNT, null);
+				cursor = mDbManager.query(DBValue.SQL_SELECT_DISLIKE_PACKAGE_COUNT, selectionArgs);
 				break;
 			case DBValue.TYPE_SELECT_PACKAGE_INFO_COUNT:
 				cursor = mDbManager.query(DBValue.SQL_SELECT_PACKAGE_INFO_COUNT, selectionArgs);

@@ -87,7 +87,7 @@ public class NotiDataListAdapter extends BaseAdapter {
 			e.printStackTrace();
 		}
 		TextView total = (TextView) convertView.findViewById(R.id.cnt);
-		String count = String.format("%d", /*mNotiData.get(position).getLikeCnt(),*/ mNotiData.get(position).getTotalCnt());
+		String count = String.format("%d / %d", mNotiData.get(position).getSpamCnt(), mNotiData.get(position).getTotalCnt());
 		total.setText(count);
 
 		convertView.setTag(mNotiData.get(position));

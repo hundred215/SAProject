@@ -85,6 +85,13 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 		OpenActivity.startSplashScreenActivity(this);
 	}
 
+	private void updateTotalCount()
+	{
+		int total = mDBHandler.selectCountDB(DBValue.TYPE_SELECT_TOTAL_COUNT, null);
+		TextView total_view = (TextView) findViewById(R.id.total_noti_txt);
+		total_view.setText(total + "");
+	}
+
 	@Override
 	protected void onResume()
 	{
@@ -93,6 +100,7 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 		updatePrivacyModeIcon();
 
 		getSupportLoaderManager().initLoader(0, null, this).forceLoad();
+		updateTotalCount();
 	}
 
 	@Override

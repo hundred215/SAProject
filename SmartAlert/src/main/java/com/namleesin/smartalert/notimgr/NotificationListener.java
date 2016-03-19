@@ -215,15 +215,6 @@ public class NotificationListener extends NotificationListenerService
 			cancelAllNotifications();
 		}
 
-		String like = getLikeFilter(notiText);
-		if(like!= null)
-		{
-			notiData.status = DBValue.STATUS_LIKE;
-			notiData.filter_word = like;
-			handler.insertDB(DBValue.TYPE_INSERT_NOTIINFO, notiData);
-			return;
-		}
-
 		if(true == mFilterPkg.contains(notiData.packagename))
 		{
 			notiData.status = DBValue.STATUS_DISLIKE;
@@ -240,8 +231,14 @@ public class NotificationListener extends NotificationListenerService
 			return;
 		}
 
+		String like = getLikeFilter(notiText);
 		String dislike = getDisLikeFilter(notiText);
-		if(dislike != null)
+		if(like!= null)
+		{
+			notiData.status = DBValue.STATUS_LIKE;
+			notiData.filter_word = like;
+		}
+		else if(dislike != null)
 		{
 			notiData.status = DBValue.STATUS_DISLIKE;
 			notiData.filter_word = dislike;
@@ -255,9 +252,7 @@ public class NotificationListener extends NotificationListenerService
 			{
 				cancelNotification(sbn.getKey());
 			}
-			return;
 		}
-
 		handler.insertDB(DBValue.TYPE_INSERT_NOTIINFO, notiData);
 	}
 }

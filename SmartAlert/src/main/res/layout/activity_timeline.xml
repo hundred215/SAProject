@@ -10,7 +10,7 @@
         android:id="@+id/actionbar"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        custom:actionbarType="activity"
+        custom:actionbarType="timeline"
         custom:actionbarTitle="@string/STR_ACTION_TITLE_TXT01">
     </com.namleesin.smartalert.commonView.ActionBarView>
 

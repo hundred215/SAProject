@@ -8,6 +8,7 @@ public class NotiInfoData
 	public String pkgName;
 	public String appName;
 	public int likeCnt;
+	public int spamCnt;
 	public int totalCnt;
 
 	public String getPkgName() {
@@ -39,6 +40,14 @@ public class NotiInfoData
 	}
 	public NotiInfoData setTotalCnt(int totalCnt) {
 		this.totalCnt = totalCnt;
+		return this;
+	}
+	public int getSpamCnt() {
+		return spamCnt;
+	}
+
+	public NotiInfoData setSpamCnt(int spamCnt) {
+		this.spamCnt = spamCnt;
 		return this;
 	}
 }

@@ -53,7 +53,7 @@ public class DBValue
 	public static final String SQL_SELECT_PRE_DAY_COUNT			= "SELECT count(*) FROM noti_info_table WHERE date(noti_time) >= date(subdate(now(), INTERVAL ? DAY) and date(noti_time) <= date(now())";
 	public static final String SQL_SELECT_TOTAL_COUNT			= "SELECT count(*) FROM noti_info_table";
 	public static final String SQL_SELECT_URL_COUNT				= "SELECT count(*) FROM noti_info_table WHERE noti_url_status=1";
-	public static final String SQL_SELECT_DISLIKE_COUNT			= "SELECT count(*) FROM noti_info_table WHERE noti_status="+STATUS_DISLIKE;
+	public static final String SQL_SELECT_DISLIKE_COUNT			= "SELECT count(*) FROM noti_info_table WHERE noti_status="+STATUS_DISLIKE +" or noti_package=?";
 	public static final String SQL_SELECT_LIKE_COUNT			= "SELECT count(*) FROM noti_info_table WHERE noti_status="+STATUS_LIKE;
 	public static final String SQL_SELECT_DISLIKE_PACKAGE_COUNT = "SELECT count(*) FROM noti_info_table WHERE noti_package=? and noti_status="+STATUS_DISLIKE;
 	public static final String SQL_SELECT_PACKAGE_INFO_COUNT	= "SELECT count(*) FROM noti_info_table WHERE noti_package=?";

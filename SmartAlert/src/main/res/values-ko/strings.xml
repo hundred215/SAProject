@@ -30,7 +30,7 @@
 
     <string name="STR_GUIDE_01_TXT01">귀찮은 푸쉬 알림 차단</string>
     <string name="STR_GUIDE_01_TXT02">잠금 화면 및 알림 바에 노출되었던 스팸 광고 및 메시지 등 귀찮게 하는 알림을 차단하세요.</string>
-    <string name="STR_GUIDE_01_TXT03">평상시 무분별하게 올리는 스팸 알림을 숨기고 지워도 끝없이 쌓이는 알림 바를 정리해 보세요.</string>
+    <string name="STR_GUIDE_01_TXT03">무분별하게 오는 스팸 알림을 차단하고 지워도 끝없이 쌓이는 알림 바를 정리해 보세요.</string>
 
     <string name="STR_GUIDE_02_TXT01">모아서 보는 관심 알림</string>
     <string name="STR_GUIDE_02_TXT02">관심 키워드를 설정하여 필요한 알림은 모아서 볼 수 있습니다. 관심 있는 정보를 놓치지 마세요.</string>
@@ -38,7 +38,7 @@
     <string name="STR_GUIDE_03_TXT01">프라버시 모드</string>
     <string name="STR_GUIDE_03_TXT02">버튼 하나로 모든 알림을 차단하며, 회의나 모임이 있는 경우 프라이버시 모드를 이용해 보세요.</string>
 
-    <string name="STR_ALERT_SET_TXT01">알림 접근(액세스) 권한에서 똑똑한 알림을 선택해 주세요.</string>
+    <string name="STR_ALERT_SET_TXT01">알림 접근(액세스) 권한에서 알림을 선택해 주세요.</string>
 
     <string name="STR_NOTI_TAB_TXT01">어플리케이션</string>
     <string name="STR_NOTI_TAB_TXT02">키워드 추가</string>
@@ -48,11 +48,12 @@
 
     <string name="STR_NOTI_LIKE_SET_TXT01">관심 알림 설정</string>
     <string name="STR_NOTI_LIKE_SET_TXT02">키우드를 설정하여 관심 있는 알림을 모아 보세요!</string>
-    <string name="STR_NOTI_LIKE_SET_TXT03">똑똑한 알림 - 관심 키워드를 등록 해주세요.</string>
+    <string name="STR_NOTI_LIKE_SET_TXT03">알림EDA - 관심 키워드를 등록 해주세요.</string>
 
     <string name="STR_MAIN_TXT01">스팸으로 차단된 알림이 없습니다.</string>
-    <string name="STR_MAIN_TXT02">더보기</string>
+    <string name="STR_MAIN_TXT02">더 보기</string>
     <string name="STR_MAIN_TXT03">내리기</string>
+    <string name="STR_MAIN_TXT04">최근 한달동안 숨김 알림 앱 순위</string>
 
     <string name="STR_MAIN_GUIDE_TXT01">다시 보지 않기</string>
 
@@ -72,8 +73,8 @@
     <string name="STR_TOAST_TXT02">스팸 알림 정보가 없습니다.</string>
     <string name="STR_TOAST_TXT03">관심 알림 정보가 없습니다.</string>
 
-    <string name="STR_SPAM_KEYWORD" formatted="false">%s<![CDATA[<font color="#dd0000">%s</font>]]></string>
-    <string name="STR_LIKE_KEYWORD" formatted="false">%s<![CDATA[<font color="#288cdc">%s</font>]]></string>
+    <string name="STR_SPAM_KEYWORD" formatted="false">%s<![CDATA[<font color="#dd0000"><b>%s</b></font>]]></string>
+    <string name="STR_LIKE_KEYWORD" formatted="false">%s<![CDATA[<font color="#288cdc"><b>%s</b></font>]]></string>
 
     <string name="STR_PRIVACY_MODE">프라이버시 모드</string>
     <string name="STR_PRIVACY_MODE_ON">프라이버시 모드가 동작 중입니다. 모든 알림이 차단됩니다.</string>

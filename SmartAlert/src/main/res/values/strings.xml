@@ -16,67 +16,67 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
 
-    <string name="app_name">알림EDA</string>
-    <string name="STR_COMM_BTN_NEXT_TXT">다음</string>
-    <string name="STR_COMM_BTN_ALERTSET_TXT">알림 접근(액세스) 설정하기</string>
-    <string name="STR_COMM_BTN_SET_TXT">스팸 알림 설정</string>
-    <string name="STR_COMM_BTN_CLOSE_TXT">닫기</string>
-    <string name="STR_COMM_BTN_BLOCK_ON_TXT">차단 중</string>
-    <string name="STR_COMM_BTN_BLOCK_OFF_TXT">차단</string>
+    <string name = "app_name"> NotiEDA </string>>
+    <string name = "STR_COMM_BTN_NEXT_TXT"> Next </string>>
+    <string name = "STR_COMM_BTN_ALERTSET_TXT"> Notification Access</string>>
+    <string name = "STR_COMM_BTN_SET_TXT"> Spam Notification Settings </string>>
+    <string name = "STR_COMM_BTN_CLOSE_TXT"> Close </string>>
+    <string name = "STR_COMM_BTN_BLOCK_ON_TXT"> Blocking </string>>
+    <string name = "STR_COMM_BTN_BLOCK_OFF_TXT"> Off </string>>
 
-    <string name="STR_ACTION_TITLE_TXT01">최근 한달동안 숨김 알림</string>
-    <string name="STR_ACTION_TITLE_TXT02">최근 한달 스팸 알림</string>
-    <string name="STR_ACTION_TITLE_TXT03">최근 한달 관심 알림</string>
-    <string name="STR_ACTION_TITLE_TXT04">알림 통계 및 차단</string>
+    <string name = "STR_ACTION_TITLE_TXT01"> Hidden notifications for a month</string>>
+    <string name = "STR_ACTION_TITLE_TXT02"> Spam Notification for a month</string>>
+    <string name = "STR_ACTION_TITLE_TXT03"> Interest notifications for a month  </string>>
+    <string name = "STR_ACTION_TITLE_TXT04"> Blocked Notifications and Statistics </string>>
 
-    <string name="STR_GUIDE_01_TXT01">귀찮은 푸쉬 알림 차단</string>
-    <string name="STR_GUIDE_01_TXT02">잠금 화면 및 알림 바에 노출되었던 스팸 광고 및 메시지 등 귀찮게 하는 알림을 차단하세요.</string>
-    <string name="STR_GUIDE_01_TXT03">평상시 무분별하게 올리는 스팸 알림을 숨기고 지워도 끝없이 쌓이는 알림 바를 정리해 보세요.</string>
+    <string name = "STR_GUIDE_01_TXT01"> Block irritating push notifications </string>>
+    <string name = "STR_GUIDE_01_TXT02"> Block irritating notifications, such as notification ads and spam messages that were exposed on lock screen or notification bar. </string>>
+    <string name = "STR_GUIDE_01_TXT03"> Block indiscriminate spam notifications and Organize endlessly accumulate notifications.</string>>
+    
+    <string name = "STR_GUIDE_02_TXT01"> Collect interested notifications </string>>
+    <string name = "STR_GUIDE_02_TXT02"> You can collect the interesting notification by setting the keyword. Do not miss the interesting information. </string>>
 
-    <string name="STR_GUIDE_02_TXT01">모아서 보는 관심 알림</string>
-    <string name="STR_GUIDE_02_TXT02">관심 키워드를 설정하여 필요한 알림은 모아서 볼 수 있습니다. 관심 있는 정보를 놓치지 마세요.</string>
+    <string name = "STR_GUIDE_03_TXT01"> Privacy mode </string>>
+    <string name = "STR_GUIDE_03_TXT02"> In Privacy mode, all notifications block. It is very efficient when you have a meeting. </string>>
 
-    <string name="STR_GUIDE_03_TXT01">프라버시 모드</string>
-    <string name="STR_GUIDE_03_TXT02">버튼 하나로 모든 알림을 차단하며, 회의나 모임이 있는 경우 프라이버시 모드를 이용해 보세요.</string>
+    <string name = "STR_ALERT_SET_TXT01"> Please choose a smart notification in Notification Access Setting list. </string>>
 
-    <string name="STR_ALERT_SET_TXT01">알림 접근(액세스) 권한에서 똑똑한 알림을 선택해 주세요.</string>
+    <string name = "STR_NOTI_TAB_TXT01"> Applications </string>>
+    <string name = "STR_NOTI_TAB_TXT02"> Add keywords </string>>
+    <string name = "STR_NOTI_SPAM_SET_TXT01"> Spam Notification Settings </string>>
+    <string name = "STR_NOTI_SPAM_SET_APP_TXT01"> Block the annoying notification such as ads and spam message that were exposed to the notification bar and the lock screen. </string>>
+    <string name = "STR_NOTI_SPAM_SET_KEYWORD_TXT01"> Block the annoying notification such as ads and spam message that were exposed to the notification bar and the lock screen.</string>>
+    <string name = "STR_NOTI_LIKE_SET_TXT01"> Interesting Notification Settings </string>>
+    <string name = "STR_NOTI_LIKE_SET_TXT02"> Collect interesting notifications by setting the keyword.</string>>
+    <string name = "STR_NOTI_LIKE_SET_TXT03"> NotiEDA - Please register your interest Keywords </string>>
 
-    <string name="STR_NOTI_TAB_TXT01">어플리케이션</string>
-    <string name="STR_NOTI_TAB_TXT02">키워드 추가</string>
-    <string name="STR_NOTI_SPAM_SET_TXT01">스팸 알림 설정</string>
-    <string name="STR_NOTI_SPAM_SET_APP_TXT01">잠금 화면 및 알림 바에 노출되었던 스팸 광고 및 메시지 등 귀찮게 하는 알림을 차단합니다.</string>
-    <string name="STR_NOTI_SPAM_SET_KEYWORD_TXT01">잠금 화면 및 알림 바에 노출되었던 스팸 광고 및 메시지 등 귀찮게 하는 알림을 차단합니다.</string>
+    <string name = "STR_MAIN_TXT01"> There are no notifications blocked. </string>>
+    <string name = "STR_MAIN_TXT02"> More </string>>
+    <string name = "STR_MAIN_TXT03"> Down </string>>
+    <string name = "STR_MAIN_TXT04">The Blocked Spam App Rank</string>
 
-    <string name="STR_NOTI_LIKE_SET_TXT01">관심 알림 설정</string>
-    <string name="STR_NOTI_LIKE_SET_TXT02">키우드를 설정하여 관심 있는 알림을 모아 보세요!</string>
-    <string name="STR_NOTI_LIKE_SET_TXT03">똑똑한 알림 - 관심 키워드를 등록 해주세요.</string>
+    <string name = "STR_MAIN_GUIDE_TXT01"> Don\'t see again </string>>
 
-    <string name="STR_MAIN_TXT01">스팸으로 차단된 알림이 없습니다.</string>
-    <string name="STR_MAIN_TXT02">더보기</string>
-    <string name="STR_MAIN_TXT03">내리기</string>
+    <string name = "STR_DASH_TXT01"> The last one month </string>>
+    <string name = "STR_DASH_TXT02"> Privacy mode </string>>
+    <string name = "STR_DASH_TXT03"> Spam Notifications </string>>
+    <string name = "STR_DASH_TXT04"> Interest Notifications </string>>
 
-    <string name="STR_MAIN_GUIDE_TXT01">다시 보지 않기</string>
+    <string name = "STR_PULLDOWN_TXT01"> Please pull down and enter keywords.</string>>
 
-    <string name="STR_DASH_TXT01">최근 한달 동안</string>
-    <string name="STR_DASH_TXT02">프라이버시 모드</string>
-    <string name="STR_DASH_TXT03">스팸알림</string>
-    <string name="STR_DASH_TXT04">관심알림</string>
+    <string name = "STR_MENU_TXT01"> Product versions: </string>>
+    <string name = "STR_MENU_TXT02"> Spam Notification Settings </string>>
+    <string name = "STR_MENU_TXT03"> Interest Notification Settings </string>>
+    <string name = "STR_MENU_TXT04"> Product Guide </string>>>
 
-    <string name="STR_PULLDOWN_TXT01">여기를 아래로 당겨 키워드를 입력하세요</string>
+    <string name = "STR_TOAST_TXT01"> There is no notifications. </string>>
+    <string name = "STR_TOAST_TXT02"> There is no spam notifications. </string>>
+    <string name = "STR_TOAST_TXT03"> There is not interested notification. </string>>
 
-    <string name="STR_MENU_TXT01">제품 버전 : </string>
-    <string name="STR_MENU_TXT02">스팸 알림 설정</string>
-    <string name="STR_MENU_TXT03">관심 알림 설정</string>
-    <string name="STR_MENU_TXT04">제품 가이드</string>
+    <string name = "STR_SPAM_KEYWORD" formatted = "false">% s <![CDATA[<font color="#dd0000"><b>%s</b></font>]]></string>>
+    <string name = "STR_LIKE_KEYWORD" formatted = "false">% s <![CDATA[<font color="#288cdc"><b>%s</b></font>]]></string>>
 
-    <string name="STR_TOAST_TXT01">알림 정보가 없습니다.</string>
-    <string name="STR_TOAST_TXT02">스팸 알림 정보가 없습니다.</string>
-    <string name="STR_TOAST_TXT03">관심 알림 정보가 없습니다.</string>
-
-    <string name="STR_SPAM_KEYWORD" formatted="false">%s<![CDATA[<font color="#dd0000">%s</font>]]></string>
-    <string name="STR_LIKE_KEYWORD" formatted="false">%s<![CDATA[<font color="#288cdc">%s</font>]]></string>
-
-    <string name="STR_PRIVACY_MODE">프라이버시 모드</string>
-    <string name="STR_PRIVACY_MODE_ON">프라이버시 모드가 동작 중입니다. 모든 알림이 차단됩니다.</string>
-    <string name="STR_PRIVACY_MODE_OFF">프라이버시 모드가 해제되었습니다. </string>
+    <string name = "STR_PRIVACY_MODE"> Privacy Mode </string>>
+    <string name = "STR_PRIVACY_MODE_ON"> You are in the privacy mode. All notifications will be blocked. </string>>
+    <string name = "STR_PRIVACY_MODE_OFF"> The Privacy mode is turned off. </string>>
 </resources>

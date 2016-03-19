@@ -45,12 +45,14 @@ public class NotiDataLoader extends android.support.v4.content.AsyncTaskLoader<A
 		{
 			int total = mDbHandler.selectCountDB(DBValue.TYPE_SELECT_PACKAGE_INFO_COUNT, info.packageName);
 			int like = mDbHandler.selectCountDB(DBValue.TYPE_SELECT_LIKE_PACKAGE_COUNT, info.packageName);
+			int spam = mDbHandler.selectCountDB(DBValue.TYPE_SELECT_DISLIKE_PACKAGE_COUNT, info.packageName);
 
 			if(total>0) {
 				NotiInfoData data = new NotiInfoData()
 						.setPkgName(info.packageName)
 						.setAppName((String) info.loadLabel(mPkgMgr))
 						.setLikeCnt(like)
+						.setSpamCnt(spam)
 						.setTotalCnt(total);
 				noti_data_list.add(data);
 			}

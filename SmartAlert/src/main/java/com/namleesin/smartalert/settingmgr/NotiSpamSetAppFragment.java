@@ -24,6 +24,8 @@ import com.namleesin.smartalert.dbmgr.DbHandler;
 import com.namleesin.smartalert.utils.AppInfo;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -92,6 +94,14 @@ public class NotiSpamSetAppFragment extends Fragment implements AdapterView.OnIt
             ApplicationInfo info = null;
             ArrayList<ListViewItem> listAppInfoData = new ArrayList<ListViewItem>();
 
+            Collections.sort(mAppList, new Comparator<ApplicationInfo>() {
+                @Override
+                public int compare(ApplicationInfo lhs, ApplicationInfo rhs) {
+                    return lhs.loadLabel(mPm).toString().compareToIgnoreCase(rhs.loadLabel(mPm).toString());
+                }});
+
+            publishProgress(10);
+
             ArrayList<String> packagelist = new ArrayList<String>();
             DbHandler handler = new DbHandler(getActivity().getApplicationContext());
             Cursor cursor = handler.selectDBData(DBValue.TYPE_SELECT_FILTERPKG_INFO, null);
@@ -124,7 +134,7 @@ public class NotiSpamSetAppFragment extends Fragment implements AdapterView.OnIt
                     listAppInfoData.add(addInfo);
                 }
                 i++;
-                this.publishProgress(i);
+                this.publishProgress(10+i);
             }
 
             return listAppInfoData;
@@ -142,7 +152,7 @@ public class NotiSpamSetAppFragment extends Fragment implements AdapterView.OnIt
             mAdapter.setData(aListArray);
             mListView.setAdapter(mAdapter);
 
-            mProgressBar.setVisibility(View.GONE);
+            mProgressBar.setVisibility(View.INVISIBLE);
         }
     }
 
