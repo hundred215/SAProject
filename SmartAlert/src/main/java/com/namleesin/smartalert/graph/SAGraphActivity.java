@@ -20,6 +20,7 @@ import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 import com.jjoe64.graphview.series.PointsGraphSeries;
 import com.namleesin.smartalert.R;
+import com.namleesin.smartalert.commonView.ActionBarView;
 import com.namleesin.smartalert.dbmgr.DBValue;
 import com.namleesin.smartalert.dbmgr.DbHandler;
 import com.namleesin.smartalert.settingmgr.ListViewItem;
@@ -27,8 +28,7 @@ import com.namleesin.smartalert.settingmgr.ListViewItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SAGraphActivity extends Activity
-{
+public class SAGraphActivity extends Activity implements View.OnClickListener {
     private int mYMaxCount = 1000;
     private ListView mListView = null;
     private GraphListViewAdapter mAdapter = null;
@@ -38,6 +38,9 @@ public class SAGraphActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_graph);
+        ActionBarView actionbar = (ActionBarView) findViewById(R.id.actionbar);
+        actionbar.setTitleType(ActionBarView.ACTIONBAR_TYPE_GRAPH, getString(R.string.STR_ACTION_TITLE_TXT04));
+        actionbar.setOnFinishButtonListener(this);
 
         mListView = (ListView) findViewById(R.id.graphlistview);
 
@@ -49,6 +52,19 @@ public class SAGraphActivity extends Activity
 
         drawGraph();
 	}
+
+    @Override
+    public void onClick(View v)
+    {
+        switch (v.getId())
+        {
+            case R.id.back_arrow:
+                finish();
+                break;
+            default:
+                break;
+        }
+    }
 
     private void drawGraph()
     {

@@ -16,9 +16,10 @@ import com.namleesin.smartalert.R;
  */
 public class ActionBarView extends LinearLayout implements View.OnClickListener{
     public static final int ACTIONBAR_TYPE_MAIN             = 0;
-    public static final int ACTIONBAR_TYPE_ACTIVITY         = 1;
+    public static final int ACTIONBAR_TYPE_TIMELINE         = 1;
     public static final int ACTIONBAR_TYPE_VIEW             = 2;
     public static final int ACTIONBAR_TYPE_WIZARD           = 3;
+    public static final int ACTIONBAR_TYPE_GRAPH            = 4;
 
 
     private LayoutInflater mInflater;
@@ -45,16 +46,21 @@ public class ActionBarView extends LinearLayout implements View.OnClickListener{
     public int getLayoutResource(int type)
     {
         int resource = R.layout.layout_actionbar_main;
-        switch (type) {
+        switch (type)
+        {
             case ACTIONBAR_TYPE_MAIN:
                 resource = R.layout.layout_actionbar_main;
                 break;
-            case ACTIONBAR_TYPE_ACTIVITY:
-                resource = R.layout.layout_actionbar_activity;
+            case ACTIONBAR_TYPE_TIMELINE:
+                resource = R.layout.layout_actionbar_timeline;
                 break;
             case ACTIONBAR_TYPE_VIEW:
-            case ACTIONBAR_TYPE_WIZARD:
+            case ACTIONBAR_TYPE_GRAPH:
                 resource = R.layout.layout_actionbar_view;
+                break;
+            case ACTIONBAR_TYPE_WIZARD:
+                break;
+            default:
                 break;
         }
         return resource;
@@ -74,10 +80,11 @@ public class ActionBarView extends LinearLayout implements View.OnClickListener{
                 main.findViewById(R.id.menu_drawer_btn).setOnClickListener(this);
                 main.findViewById(R.id.graph_btn).setOnClickListener(this);
                 break;
-            case ACTIONBAR_TYPE_ACTIVITY:
+            case ACTIONBAR_TYPE_TIMELINE:
                 main.findViewById(R.id.back_arrow).setOnClickListener(this);
                 break;
             case ACTIONBAR_TYPE_VIEW:
+            case ACTIONBAR_TYPE_GRAPH:
                 main.findViewById(R.id.back_arrow).setOnClickListener(this);
                 break;
             case ACTIONBAR_TYPE_WIZARD:

@@ -6,11 +6,13 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.util.Log;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.namleesin.smartalert.R;
+import com.namleesin.smartalert.commonView.ActionBarView;
 import com.namleesin.smartalert.dbmgr.DBValue;
 
 import java.util.ArrayList;
@@ -18,15 +20,14 @@ import java.util.ArrayList;
 /**
  * Created by comus1200 on 2015. 12. 24..
  */
-public class TimeLineActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<ArrayList<TimelineData>> {
+public class TimeLineActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<ArrayList<TimelineData>>, View.OnClickListener {
     public static String TIMELINE_TYPE = "type";
     public static String TIMELINE_PKG = "pkg";
 
-    public static int TYPE_PACKAGE = 0;
-    public static int TYPE_FAVORITE = 1;
-    public static int TYPE_HATE = 2;
-    public static int TYPE_TIME = 3;
-
+    public static final int TYPE_PACKAGE = 0;
+    public static final int TYPE_FAVORITE = 1;
+    public static final int TYPE_HATE = 2;
+    public static final int TYPE_TIME = 3;
 
     private int type;
     private String param;
@@ -38,28 +39,33 @@ public class TimeLineActivity extends FragmentActivity implements LoaderManager.
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_timeline);
+        ActionBarView actionbar = (ActionBarView) findViewById(R.id.actionbar);
+        actionbar.setOnFinishButtonListener(this);
+
         Intent intent = getIntent();
         type = intent.getIntExtra(TIMELINE_TYPE, 0);
 
-        if(type == TYPE_PACKAGE)
+        switch (type)
         {
-            param = intent.getStringExtra(TIMELINE_PKG);
-            queryType = DBValue.TYPE_SELECT_PACKAGE_INFO;
-        }
-        else if(type == TYPE_FAVORITE)
-        {
-            queryType = DBValue.TYPE_SELECT_LIKE_PKG_INFO;
-        }
-        else if(type == TYPE_HATE)
-        {
-            queryType = DBValue.TYPE_SELECT_DISLIKE_PKG_INFO;
-        }
-        else
-        {
-            queryType = DBValue.TYPE_SELECT_NOTI_INFO;
+            case TYPE_PACKAGE:
+                param = intent.getStringExtra(TIMELINE_PKG);
+                queryType = DBValue.TYPE_SELECT_PACKAGE_INFO;
+                break;
+            case TYPE_FAVORITE:
+                queryType = DBValue.TYPE_SELECT_LIKE_PKG_INFO;
+                actionbar.setTitleType(ActionBarView.ACTIONBAR_TYPE_TIMELINE, getString(R.string.STR_ACTION_TITLE_TXT03));
+                break;
+            case TYPE_HATE:
+                queryType = DBValue.TYPE_SELECT_DISLIKE_PKG_INFO;
+                actionbar.setTitleType(ActionBarView.ACTIONBAR_TYPE_TIMELINE, getString(R.string.STR_ACTION_TITLE_TXT02));
+                break;
+            default:
+                queryType = DBValue.TYPE_SELECT_NOTI_INFO;
+                actionbar.setTitleType(ActionBarView.ACTIONBAR_TYPE_TIMELINE, getString(R.string.STR_ACTION_TITLE_TXT01));
+                break;
         }
 
-        setContentView(R.layout.activity_timeline);
         mTimelineListView = (ListView) findViewById(R.id.timeline_list);
 
         mAdapter = new TimelineListAdapter(this);
@@ -89,5 +95,18 @@ public class TimeLineActivity extends FragmentActivity implements LoaderManager.
     @Override
     public void onLoaderReset(Loader<ArrayList<TimelineData>> loader) {
 
+    }
+
+    @Override
+    public void onClick(View v)
+    {
+        switch (v.getId())
+        {
+            case R.id.back_arrow:
+                finish();
+                break;
+            default:
+                break;
+        }
     }
 }

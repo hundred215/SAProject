@@ -2,13 +2,10 @@ package com.namleesin.smartalert.timeline;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.provider.CalendarContract;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -125,17 +122,16 @@ public class TimelineListAdapter extends BaseAdapter {
             return null;
         }
         Spannable coloredStr = new SpannableString(content);
-        Log.d("NJ LEE", "string : " + content + " change : " + word);
+
         while(true){
             index = content.indexOf(word, index);
             if(index == -1)
                 break;
 
-            Log.d("NJ LEE", "index : " + index);
-            coloredStr.setSpan(colorSpan, index, word.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            coloredStr.setSpan(colorSpan, index, index + word.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             index += word.length();
         }
-        Log.d("NJ LEE", "complete : "+contentWitColor);
+
         return coloredStr;
     }
 

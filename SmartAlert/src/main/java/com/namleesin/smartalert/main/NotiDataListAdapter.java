@@ -3,18 +3,14 @@ package com.namleesin.smartalert.main;
 import java.util.ArrayList;
 
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.namleesin.smartalert.R;
@@ -82,7 +78,6 @@ public class NotiDataListAdapter extends BaseAdapter {
 			convertView = mInflater.inflate(R.layout.layout_mian_list_item, parent, false);
 		}
 
-		Log.d("NJ LEE", "mNotiData : " + mNotiData.get(position).pkgName);
 		TextView name = (TextView) convertView.findViewById(R.id.app_name);
 		name.setText(mNotiData.get(position).appName);
 		ImageView icon = (ImageView) convertView.findViewById(R.id.icon);
@@ -92,7 +87,7 @@ public class NotiDataListAdapter extends BaseAdapter {
 			e.printStackTrace();
 		}
 		TextView total = (TextView) convertView.findViewById(R.id.cnt);
-		String count = String.format("%d/ %d", mNotiData.get(position).getLikeCnt(), mNotiData.get(position).getTotalCnt());
+		String count = String.format("%d", /*mNotiData.get(position).getLikeCnt(),*/ mNotiData.get(position).getTotalCnt());
 		total.setText(count);
 
 		convertView.setTag(mNotiData.get(position));

@@ -7,10 +7,11 @@
     android:orientation="vertical">
 
     <com.namleesin.smartalert.commonView.ActionBarView
+        android:id="@+id/actionbar"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         custom:actionbarType="activity"
-        custom:actionbarTitle="@string/STR_ACTION_TITLE_TXT02">
+        custom:actionbarTitle="@string/STR_ACTION_TITLE_TXT01">
     </com.namleesin.smartalert.commonView.ActionBarView>
 
     <LinearLayout

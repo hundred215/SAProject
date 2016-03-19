@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="action_settings">Settings</string>
-    <string name="count" formatted="true"><font fgcolor="#034e6b">%d </font>/ %d</string>
+    <string name="count" formatted="true"><!--<font fgcolor="#034e6b">%d </font>/--> %d</string>
     <string name="title_activity_guide_mgr_activiy">GuideMgrActiviy</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_spam_setting">SpamSettingActivity</string>
@@ -23,8 +23,10 @@
     <string name="STR_COMM_BTN_BLOCK_ON_TXT">차단 중</string>
     <string name="STR_COMM_BTN_BLOCK_OFF_TXT">차단</string>
 
-    <string name="STR_ACTION_TITLE_TXT01">최근 한달 알림 그래프</string>
-    <string name="STR_ACTION_TITLE_TXT02">최근 한달동안 숨김 알림</string>
+    <string name="STR_ACTION_TITLE_TXT01">최근 한달동안 숨김 알림</string>
+    <string name="STR_ACTION_TITLE_TXT02">최근 한달 스팸 알림</string>
+    <string name="STR_ACTION_TITLE_TXT03">최근 한달 관심 알림</string>
+    <string name="STR_ACTION_TITLE_TXT04">알림 통계 및 차단</string>
 
     <string name="STR_GUIDE_01_TXT01">귀찮은 푸쉬 알림 차단</string>
     <string name="STR_GUIDE_01_TXT02">잠금 화면 및 알림 바에 노출되었던 스팸 광고 및 메시지 등 귀찮게 하는 알림을 차단하세요.</string>
