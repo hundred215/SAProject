@@ -126,8 +126,7 @@ public class NotiSpamSetAppFragment extends Fragment implements AdapterView.OnIt
                     listAppInfoData.add(addInfo);
                 }
                 i++;
-                int progress = 90*i/mAppList.size();
-                this.publishProgress(progress);
+                this.publishProgress(i);
             }
 
             Collections.sort(listAppInfoData, new Comparator<ListViewItem>() {
@@ -135,7 +134,6 @@ public class NotiSpamSetAppFragment extends Fragment implements AdapterView.OnIt
                 public int compare(ListViewItem lhs, ListViewItem rhs) {
                     return lhs.mAppName.compareTo(rhs.mAppName);
                 }});
-            publishProgress(i+10);
             return listAppInfoData;
         }
 

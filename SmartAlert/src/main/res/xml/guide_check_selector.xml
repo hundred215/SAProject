@@ -2,12 +2,12 @@
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item 
-        android:drawable="@drawable/checkbox_off"
+        android:drawable="@drawable/guide_checkbox_off"
         android:state_checked="false"
         android:state_enabled="true"/>
     
     <item 
-        android:drawable="@drawable/checkbox_on"
+        android:drawable="@drawable/guide_checkbox_on"
         android:state_checked="true"
         android:state_enabled="true"/>
 </selector>

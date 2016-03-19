@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ads_ids">
+        <item>ca-app-pub-1698382082790983/3529101353</item>
+        <item>ca-app-pub-1698382082790983/5005834559</item>
+        <item>ca-app-pub-1698382082790983/7959300954</item>
+    </string-array>
+</resources>
