@@ -1,6 +1,7 @@
 package com.namleesin.smartalert.main;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -495,6 +496,13 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 
 	private void openGuideMainActivity()
 	{
+		Locale systemLocale = getResources().getConfiguration().locale;
+		String strLanguage = systemLocale.getLanguage();
+		if(false == strLanguage.equals("ko"))
+		{
+			return;
+		}
+
 		boolean showguidestate = new PFMgr(this).getBooleanValue(PFValue.PRE_CHECK_STATE, false);
 		if(false == showguidestate)
 		{

@@ -224,8 +224,15 @@ public class TimelineListAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 ViewHolder holder = (ViewHolder) v.getTag();
-                Intent intent = mPkgMgr.getLaunchIntentForPackage(holder.mPkgName);
-                mCtx.startActivity(intent);
+                try
+                {
+                    Intent intent = mPkgMgr.getLaunchIntentForPackage(holder.mPkgName);
+                    mCtx.startActivity(intent);
+                }
+                catch (Exception e)
+                {
+                    ;
+                }
             }
         });
         return convertView;
