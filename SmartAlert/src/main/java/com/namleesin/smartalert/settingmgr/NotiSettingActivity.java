@@ -5,40 +5,14 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.graphics.Rect;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.TouchDelegate;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.namleesin.smartalert.R;
-import com.namleesin.smartalert.commonView.PullDownInputView;
-import com.namleesin.smartalert.data.KeywordData;
-import com.namleesin.smartalert.data.PackData;
-import com.namleesin.smartalert.dbmgr.DBValue;
-import com.namleesin.smartalert.dbmgr.DbHandler;
 import com.namleesin.smartalert.main.MainValue;
-import com.namleesin.smartalert.notimgr.NotificationListener;
-import com.namleesin.smartalert.utils.AppInfo;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class NotiSettingActivity extends Activity
 {

@@ -18,7 +18,6 @@ import android.widget.ProgressBar;
 import android.widget.Switch;
 
 import com.namleesin.smartalert.R;
-import com.namleesin.smartalert.data.PackData;
 import com.namleesin.smartalert.dbmgr.DBValue;
 import com.namleesin.smartalert.dbmgr.DbHandler;
 import com.namleesin.smartalert.utils.AppInfo;
@@ -65,10 +64,6 @@ public class NotiSpamSetAppFragment extends Fragment implements AdapterView.OnIt
             mProgressBar = (ProgressBar)mRootView.findViewById(R.id.progressbar);
 
             mPm = getActivity().getPackageManager();
-            mAppList = mPm.getInstalledApplications(PackageManager.GET_UNINSTALLED_PACKAGES
-                    | PackageManager.GET_DISABLED_COMPONENTS);
-
-            mProgressBar.setMax(mAppList.size());
         }
 
         @Override
@@ -89,6 +84,11 @@ public class NotiSpamSetAppFragment extends Fragment implements AdapterView.OnIt
             {
                 filter.init();
             }
+
+            mAppList = mPm.getInstalledApplications(PackageManager.GET_UNINSTALLED_PACKAGES
+                    | PackageManager.GET_DISABLED_COMPONENTS);
+
+            publishProgress(10);
 
             int i = 0;
             ApplicationInfo info = null;
@@ -121,19 +121,22 @@ public class NotiSpamSetAppFragment extends Fragment implements AdapterView.OnIt
                     if(true == packagelist.contains(addInfo.mPackageName))
                     {
                         addInfo.mFilterState = 1;
+                        addInfo.mIsChecked = true;
                     }
 
                     listAppInfoData.add(addInfo);
                 }
                 i++;
-                this.publishProgress(i);
+                publishProgress(10 + (90 * i/mAppList.size()));
             }
 
             Collections.sort(listAppInfoData, new Comparator<ListViewItem>() {
                 @Override
                 public int compare(ListViewItem lhs, ListViewItem rhs) {
                     return lhs.mAppName.compareTo(rhs.mAppName);
-                }});
+                }
+            });
+
             return listAppInfoData;
         }
 

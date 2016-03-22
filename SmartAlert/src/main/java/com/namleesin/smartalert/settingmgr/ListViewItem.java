@@ -14,6 +14,7 @@ public class ListViewItem
     public String mPackageName = null;
     public int mNotiCount = 0;
     public int mFilterState = 0;
+    public boolean mIsChecked = false;
 /*
     public ListViewItem(String aAppName, Drawable aAppIcon)
     {
