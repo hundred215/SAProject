@@ -97,6 +97,7 @@ public class NotiLikeSetKeywordFragment extends Fragment
         DbHandler handler = new DbHandler(getActivity().getApplicationContext());
         Cursor cursor = handler.selectDBData(DBValue.TYPE_SELECT_FILTERWORD_INFO, String.valueOf(DBValue.STATUS_LIKE));
 
+        mListKeywordData.clear();
         if(null != cursor && cursor.getCount() > 0)
         {
             cursor.moveToFirst();

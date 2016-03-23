@@ -35,10 +35,10 @@ public class AppInfo
         }
     }
 
-    public static interface AppFilter
+    public interface AppFilter
     {
-        public void init();
-        public boolean filterApp(ApplicationInfo info);
+        void init();
+        boolean filterApp(ApplicationInfo info);
     }
 
     public static final AppFilter THIRD_PARTY_FILTER = new AppFilter()
@@ -47,7 +47,9 @@ public class AppInfo
         }
         @Override
         public boolean filterApp(ApplicationInfo info) {
-            if ((info.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0) {
+            if(info.packageName.equals("com.hundred215.notiEDA")){
+                return false;
+            } else if ((info.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0) {
                 return true;
             } else if ((info.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
                 return true;
