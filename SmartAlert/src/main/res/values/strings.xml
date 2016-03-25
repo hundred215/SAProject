@@ -24,10 +24,11 @@
     <string name = "STR_COMM_BTN_BLOCK_ON_TXT"> Blocking </string>>
     <string name = "STR_COMM_BTN_BLOCK_OFF_TXT"> Off </string>>
 
-    <string name = "STR_ACTION_TITLE_TXT01"> Hidden notifications for a month</string>>
-    <string name = "STR_ACTION_TITLE_TXT02"> Spam Notification for a month</string>>
-    <string name = "STR_ACTION_TITLE_TXT03"> Interest notifications for a month  </string>>
-    <string name = "STR_ACTION_TITLE_TXT04"> Blocked Notifications and Statistics </string>>
+    <string name = "STR_ACTION_TITLE_TXT01"> Notification app rankings</string>>
+    <string name = "STR_ACTION_TITLE_TXT02"> Spam Notification</string>>
+    <string name = "STR_ACTION_TITLE_TXT03"> Interest notifications</string>
+    <string name = "STR_ACTION_TITLE_TXT04"> Blocked Notifications and Statistics </string>
+    <string name = "STR_ACTION_TITLE_TXT05"> Total Notifications </string>>
 
     <string name = "STR_GUIDE_01_TXT01"> Block irritating push notifications </string>>
     <string name = "STR_GUIDE_01_TXT02"> Block irritating notifications, such as notification ads and spam messages that were exposed on lock screen or notification bar. </string>>
@@ -57,7 +58,7 @@
 
     <string name = "STR_MAIN_GUIDE_TXT01"> Don\'t see again </string>>
 
-    <string name = "STR_DASH_TXT01"> The last one month </string>>
+    <string name = "STR_DASH_TXT01"> Total Notifications </string>>
     <string name = "STR_DASH_TXT02"> Privacy mode </string>>
     <string name = "STR_DASH_TXT03"> Spam Notifications </string>>
     <string name = "STR_DASH_TXT04"> Interest Notifications </string>>

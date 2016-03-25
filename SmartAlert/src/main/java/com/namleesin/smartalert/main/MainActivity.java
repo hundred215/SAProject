@@ -320,7 +320,7 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 			float dpHeight = content.getHeight() - pixel;
 			Animation ani = new GrowupAnimation(mOverlay, GrowupAnimation.MODE_GROW, mOverlayHeight, dpHeight);
 			mOverlay.startAnimation(ani);
-			mActionbar.setTitleType(ActionBarView.ACTIONBAR_TYPE_VIEW, "최근 한달동안 숨김 알림 앱 순위");
+			mActionbar.setTitleType(ActionBarView.ACTIONBAR_TYPE_VIEW, getString(R.string.STR_ACTION_TITLE_TXT01));
 			checkBox.setChecked(true);
 			textView.setText(getString(R.string.STR_MAIN_TXT03));
 		}

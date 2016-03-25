@@ -23,10 +23,11 @@
     <string name="STR_COMM_BTN_BLOCK_ON_TXT">차단 중</string>
     <string name="STR_COMM_BTN_BLOCK_OFF_TXT">차단</string>
 
-    <string name="STR_ACTION_TITLE_TXT01">최근 한달동안 숨김 알림</string>
-    <string name="STR_ACTION_TITLE_TXT02">최근 한달 스팸 알림</string>
-    <string name="STR_ACTION_TITLE_TXT03">최근 한달 관심 알림</string>
+    <string name="STR_ACTION_TITLE_TXT01">알림 앱 순위(차단수/전체수)</string>
+    <string name="STR_ACTION_TITLE_TXT02">스팸 알림</string>
+    <string name="STR_ACTION_TITLE_TXT03">관심 알림</string>
     <string name="STR_ACTION_TITLE_TXT04">알림 통계 및 차단</string>
+    <string name="STR_ACTION_TITLE_TXT05">모든 알림</string>
 
     <string name="STR_GUIDE_01_TXT01">귀찮은 푸쉬 알림 차단</string>
     <string name="STR_GUIDE_01_TXT02">잠금 화면 및 알림 바에 노출되었던 스팸 광고 및 메시지 등 귀찮게 하는 알림을 차단하세요.</string>
@@ -57,7 +58,7 @@
 
     <string name="STR_MAIN_GUIDE_TXT01">다시 보지 않기</string>
 
-    <string name="STR_DASH_TXT01">최근 한달 동안</string>
+    <string name="STR_DASH_TXT01">모든 알림</string>
     <string name="STR_DASH_TXT02">프라이버시 모드</string>
     <string name="STR_DASH_TXT03">스팸알림</string>
     <string name="STR_DASH_TXT04">관심알림</string>

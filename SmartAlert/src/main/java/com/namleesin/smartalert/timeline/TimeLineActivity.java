@@ -64,7 +64,7 @@ public class TimeLineActivity extends FragmentActivity implements LoaderManager.
                 break;
             default:
                 queryType = DBValue.TYPE_SELECT_NOTI_INFO;
-                actionbar.setTitleText(getString(R.string.STR_ACTION_TITLE_TXT01));
+                actionbar.setTitleText(getString(R.string.STR_ACTION_TITLE_TXT05));
                 break;
         }
 
