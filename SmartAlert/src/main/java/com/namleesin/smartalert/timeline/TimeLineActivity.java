@@ -11,6 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.namleesin.smartalert.R;
 import com.namleesin.smartalert.commonView.ActionBarView;
 import com.namleesin.smartalert.dbmgr.DBValue;
@@ -73,6 +75,10 @@ public class TimeLineActivity extends FragmentActivity implements LoaderManager.
 
         LinearLayout lview = (LinearLayout)findViewById(R.id.emptytimelinelist);
         mTimelineListView.setEmptyView(lview);
+
+        AdView adView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
         getSupportLoaderManager().initLoader(1001, null, this).forceLoad();
     }
