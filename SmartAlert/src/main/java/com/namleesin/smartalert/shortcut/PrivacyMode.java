@@ -36,16 +36,16 @@ public class PrivacyMode extends Activity
 
         if(mode == PrivacyMode.PRIVACY_MODE_ON)
         {
-            delPrivacyModeShorcut(context);
+            //delPrivacyModeShorcut(context);
             pfMgr.setIntValue(PrivacyMode.PREF_PRIVACY_MODE, PRIVACY_MODE_OFF);
-            addPrivacyModeShortcut(context, R.drawable.privacy_off);
+            //addPrivacyModeShortcut(context, R.drawable.privacy_off);
             resmegid = R.string.STR_PRIVACY_MODE_OFF;
         }
         else //mode == PrivacyMode.PRIVACY_MODE_OFF
         {
-            delPrivacyModeShorcut(context);
+            //delPrivacyModeShorcut(context);
             pfMgr.setIntValue(PrivacyMode.PREF_PRIVACY_MODE, PRIVACY_MODE_ON);
-            addPrivacyModeShortcut(context, R.drawable.privacy_on);
+            //addPrivacyModeShortcut(context, R.drawable.privacy_on);
             resmegid = R.string.STR_PRIVACY_MODE_ON;
         }
 
@@ -60,9 +60,19 @@ public class PrivacyMode extends Activity
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AppCompatAlertDialogStyle);
         builder.setTitle(getString(R.string.STR_PRIVACY_MODE));
         builder.setMessage(resmegid);
-        builder.setCancelable(false);
-        builder.setPositiveButton(getString(R.string.STR_COMM_BTN_CLOSE_TXT), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
+        builder.setCancelable(true);
+        builder.setOnCancelListener(new DialogInterface.OnCancelListener()
+        {
+            @Override
+            public void onCancel(DialogInterface dialog)
+            {
+                finish();
+            }
+        });
+        builder.setPositiveButton(getString(R.string.STR_COMM_BTN_CLOSE_TXT), new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int whichButton)
+            {
                 finish();
             }
         });

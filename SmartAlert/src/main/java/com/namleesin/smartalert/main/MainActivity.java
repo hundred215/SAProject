@@ -31,6 +31,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.namleesin.smartalert.R;
 import com.namleesin.smartalert.commonView.ActionBarView;
@@ -73,6 +74,10 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		AdView mAdView = (AdView) findViewById(R.id.adView);
+		AdRequest adRequest = new AdRequest.Builder().build();
+		mAdView.loadAd(adRequest);
 
 		mDBHandler = new DbHandler(this);
 		initView();
