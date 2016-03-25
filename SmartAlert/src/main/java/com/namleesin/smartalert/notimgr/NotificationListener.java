@@ -2,7 +2,6 @@ package com.namleesin.smartalert.notimgr;
 
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Notification;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -12,6 +11,7 @@ import android.database.Cursor;
 import android.os.Build;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
+import android.util.Log;
 
 import com.namleesin.smartalert.data.KeywordData;
 import com.namleesin.smartalert.data.NotiData;
@@ -37,7 +37,7 @@ public class NotificationListener extends NotificationListenerService
 
 	private HashMap<Integer, ArrayList<KeywordData>> mFilterKeyword = new HashMap<>();
 	private ArrayList<String> mFilterPkg = new ArrayList<String>();
-	DbHandler handler;
+	DbHandler mDbHandler;
 
 	private BroadcastReceiver mFilterUpdateReceiver = new BroadcastReceiver()
 	{
@@ -115,7 +115,7 @@ public class NotificationListener extends NotificationListenerService
 	public void onCreate()
 	{
 		super.onCreate();
-		handler = new DbHandler(getApplicationContext());
+		mDbHandler = new DbHandler(getApplicationContext());
 
 		loadFilterPkg();
 		loadFilterKeywords(DBValue.STATUS_LIKE);
@@ -175,8 +175,8 @@ public class NotificationListener extends NotificationListenerService
 	{
 		Notification noti = sbn.getNotification();
 
-		if(noti.flags == Notification.FLAG_ONGOING_EVENT ||
-				noti.flags == Notification.FLAG_FOREGROUND_SERVICE)
+		if((noti.flags & Notification.FLAG_ONGOING_EVENT) > 0 ||
+				(noti.flags & Notification.FLAG_FOREGROUND_SERVICE) > 0)
 		{
 			return;
 		}
@@ -195,7 +195,7 @@ public class NotificationListener extends NotificationListenerService
 			CharSequence temp = noti.extras.getCharSequence(checkText[i]);
 			if(temp != null)
 			{
-				if(i == 1 && notiText.contains(temp.toString()))
+				if(notiText.contains(temp.toString()))
 				{
 					continue;
 				}
@@ -208,8 +208,6 @@ public class NotificationListener extends NotificationListenerService
 		notiData.notitime = sbn.getPostTime()+"";
 		notiData.urlstatus = 0;
 
-		handler = new DbHandler(getApplicationContext());
-
 		if(isPrivacyMode())
 		{
 			cancelAllNotifications();
@@ -218,7 +216,7 @@ public class NotificationListener extends NotificationListenerService
 		if(true == mFilterPkg.contains(notiData.packagename))
 		{
 			notiData.status = DBValue.STATUS_DISLIKE;
-			handler.insertDB(DBValue.TYPE_INSERT_NOTIINFO, notiData);
+			mDbHandler.insertDB(DBValue.TYPE_INSERT_NOTIINFO, notiData);
 
 			if(Build.VERSION.SDK_INT < 21)
 			{
@@ -242,7 +240,6 @@ public class NotificationListener extends NotificationListenerService
 		{
 			notiData.status = DBValue.STATUS_DISLIKE;
 			notiData.filter_word = dislike;
-			handler.insertDB(DBValue.TYPE_INSERT_NOTIINFO, notiData);
 
 			if(Build.VERSION.SDK_INT < 21)
 			{
@@ -253,6 +250,7 @@ public class NotificationListener extends NotificationListenerService
 				cancelNotification(sbn.getKey());
 			}
 		}
-		handler.insertDB(DBValue.TYPE_INSERT_NOTIINFO, notiData);
+
+		mDbHandler.insertDB(DBValue.TYPE_INSERT_NOTIINFO, notiData);
 	}
 }
