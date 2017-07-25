@@ -38,6 +38,7 @@ public class TimelineListAdapter extends BaseAdapter {
         TextView mContentTv;
         TextView mAppnameTv;
         ImageView mIconIv;
+        ImageView mDelBtn;
         String mPkgName;
     }
 
@@ -51,6 +52,7 @@ public class TimelineListAdapter extends BaseAdapter {
     private int mAddedCnt = 0;
     private AdView mAdView;
     private SparseArray<Integer> mTypeArray = new SparseArray<>();
+    private View.OnClickListener mDelBtnClickListener;
 
     TimelineListAdapter(Context context)
     {
@@ -74,6 +76,10 @@ public class TimelineListAdapter extends BaseAdapter {
 //        int cnt = mDataArray.size()%5;
 //        return mDataArray.size() + ((cnt == 0)?(mDataArray.size()/5):(mDataArray.size()/5) + 1);
         return mDataArray.size();
+    }
+
+    public void setDelBtnClickListener(View.OnClickListener listener){
+        mDelBtnClickListener = listener;
     }
 
     @Override
@@ -173,6 +179,7 @@ public class TimelineListAdapter extends BaseAdapter {
             holder.mContentTv = (TextView) convertView.findViewById(R.id.content);
             holder.mAppnameTv = (TextView) convertView.findViewById(R.id.app_name);
             holder.mIconIv = (ImageView) convertView.findViewById(R.id.icon);
+            holder.mDelBtn = (ImageView) convertView.findViewById(R.id.btn_delete);
             convertView.setTag(holder);
         }
         else
@@ -235,6 +242,8 @@ public class TimelineListAdapter extends BaseAdapter {
                 }
             }
         });
+        holder.mDelBtn.setOnClickListener(mDelBtnClickListener);
+        holder.mDelBtn.setTag(timeData.getDate());
         return convertView;
     }
 }

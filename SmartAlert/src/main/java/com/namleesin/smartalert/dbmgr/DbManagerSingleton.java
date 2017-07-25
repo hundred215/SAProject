@@ -1,12 +1,11 @@
 package com.namleesin.smartalert.dbmgr;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
+
+import java.util.ArrayList;
 
 public class DbManagerSingleton
 {
@@ -284,6 +283,10 @@ public class DbManagerSingleton
 		}
 		
 		return 0;
+	}
+
+	public int deleteTable(String table){
+		return mDbHelper.getWritableDatabase().delete(table, "1", null);
 	}
 	
 	public void closeDB()

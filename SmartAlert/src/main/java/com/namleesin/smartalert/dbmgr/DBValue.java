@@ -42,6 +42,9 @@ public class DBValue
 	public static final int TYPE_SELECT_DISLIKE_PKG_INFO		= 29;
 	public static final int TYPE_SELECT_LIKE_PKG_INFO			= 30;
 	public static final int TYPE_SELECT_NOTI_INFO				= 31;
+	public static final int TYPE_DELETE_TIMELINE_EACH = 32;
+	public static final int TYPE_DELETE_TIMELINE_ALL = 33;
+	public static final int TYPE_DELETE_TIMELINE_WITH = 34;
 
 		
 	public static final String SQL_INSRT_NOTIDATA				= "INSERT INTO noti_info_table (noti_package, noti_titletxt, noti_subtxt, noti_id, noti_key, noti_time, noti_status, noti_filter, noti_url_status) " +
@@ -72,4 +75,8 @@ public class DBValue
 
 	public static final String SQL_DELETE_FILTER_APP = "delete from package_filter_table where package=? and pakcage_status=?";
 	public static final String SQL_DELETE_FILTER_KEYWORD = "delete from keyword_filter_table where keyword=? and keyword_status=?";
+
+	public static final String SQL_DELETE_TIMELINE_EACH	="delete from noti_info_table where noti_time=?";
+	public static final String SQL_DELETE_TIMELINE_WITH ="delete from noti_info_table where ";
+	public static final String SQL_DELETE_TIMELINE_ALL	="drop table if exists noti_info_table";
 }

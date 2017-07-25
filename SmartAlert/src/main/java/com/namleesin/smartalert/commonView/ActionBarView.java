@@ -26,6 +26,7 @@ public class ActionBarView extends LinearLayout implements View.OnClickListener{
     private OnClickListener mGraghBtnListener;
     private OnClickListener mFinishBtnListener;
     private OnClickListener mMenuBtnListener;
+    private OnClickListener mDeleteBtnListener;
 
     public ActionBarView(Context context, AttributeSet attrs, int defStyle)
     {
@@ -40,7 +41,6 @@ public class ActionBarView extends LinearLayout implements View.OnClickListener{
         int type = a.getInteger(R.styleable.ActionBarView_actionbarType, -1);
         String title = a.getString(R.styleable.ActionBarView_actionbarTitle);
         initView(type, title);
-        Log.d("NJ LEE", "type : "+type+" title : "+title);
     }
 
     public int getLayoutResource(int type)
@@ -82,6 +82,7 @@ public class ActionBarView extends LinearLayout implements View.OnClickListener{
                 break;
             case ACTIONBAR_TYPE_TIMELINE:
                 main.findViewById(R.id.back_arrow).setOnClickListener(this);
+                main.findViewById(R.id.title_del_btn).setOnClickListener(this);
                 break;
             case ACTIONBAR_TYPE_VIEW:
             case ACTIONBAR_TYPE_GRAPH:
@@ -126,6 +127,8 @@ public class ActionBarView extends LinearLayout implements View.OnClickListener{
         mMenuBtnListener = l;
     }
 
+    public void setOnDelButtonListener(OnClickListener l) { mDeleteBtnListener = l; }
+
 
     @Override
     public void onClick(View v) {
@@ -142,6 +145,11 @@ public class ActionBarView extends LinearLayout implements View.OnClickListener{
             case R.id.menu_drawer_btn:
                 if(mMenuBtnListener != null)
                     mMenuBtnListener.onClick(v);
+                break;
+            case R.id.title_del_btn:
+                if(mDeleteBtnListener != null){
+                    mDeleteBtnListener.onClick(v);
+                }
                 break;
         }
     }

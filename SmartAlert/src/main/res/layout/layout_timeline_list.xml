@@ -16,30 +16,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="5dp"
-                android:src="@drawable/icon_time"/>
+                android:src="@drawable/icon_time" />
+
             <TextView
-                style="@style/fc4"
                 android:id="@+id/date"
+                style="@style/fc4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14dp" />
         </LinearLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/timeline_message_box">
 
             <ImageView
@@ -49,25 +53,32 @@
                 android:layout_marginRight="10dp" />
 
             <TextView
-                style="@style/fc4"
                 android:id="@+id/app_name"
+                style="@style/fc4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:gravity="center_vertical"
-                android:layout_toRightOf="@+id/icon"
                 android:layout_above="@+id/content"
-                android:textSize="16dp"
-                android:text="G Market"/>
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/icon"
+                android:gravity="center_vertical"
+                android:text="G Market"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:id="@+id/btn_delete"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/selector_delete_list"/>
 
             <TextView
-                style="@style/fc4"
                 android:id="@+id/content"
+                style="@style/fc4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/icon"
-                android:textSize="18dp"
-                android:text="This is your last change to get a greate one."/>
+                android:text="This is your last change to get a greate one."
+                android:textSize="18dp" />
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

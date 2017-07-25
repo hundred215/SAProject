@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -10,14 +10,23 @@
         android:id="@+id/actionbar"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:layout_alignParentTop="true"
         custom:actionbarType="timeline"
         custom:actionbarTitle="@string/STR_ACTION_TITLE_TXT01">
     </com.namleesin.smartalert.commonView.ActionBarView>
 
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/actionbar"
         android:orientation="vertical">
         <ListView
             android:id="@+id/timeline_list"
@@ -28,14 +37,13 @@
             android:paddingRight="10dp"
             android:divider="@null"
             android:dividerHeight="0dp"/>
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id2"/>
     </LinearLayout>
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id2">
-    </com.google.android.gms.ads.AdView>
-</LinearLayout>
+</RelativeLayout>

@@ -1,12 +1,12 @@
 package com.namleesin.smartalert.dbmgr;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class DbManager implements DbInfo.DbHelper
 {
@@ -56,6 +56,10 @@ public class DbManager implements DbInfo.DbHelper
 		mDb.close();
 		mDb = null;
 		mDbInfo = null;
+	}
+
+	public int deleteTable(String table){
+		return mDb.deleteTable(table);
 	}
 	
 	private void initTableSqlList()
@@ -199,7 +203,11 @@ public class DbManager implements DbInfo.DbHelper
 	{
 		mDb.endTransaction();
 	}
-	
+
+	public void deleteTable(){
+
+	}
+
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
 	{

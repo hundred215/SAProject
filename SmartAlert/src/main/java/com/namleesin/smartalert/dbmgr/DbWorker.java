@@ -1,11 +1,11 @@
 package com.namleesin.smartalert.dbmgr;
 
-import java.util.ArrayList;
-import java.util.regex.Matcher;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
+
+import java.util.ArrayList;
+import java.util.regex.Matcher;
 
 public class DbWorker
 {
@@ -198,6 +198,10 @@ public class DbWorker
 		}
 		
 		return mDb.query(sql, selectionArgs);
+	}
+
+	public int deleteTable(String table){
+		return DbManagerSingleton.getInstance().deleteTable(table);
 	}
 	
 	public void beginTransaction()
