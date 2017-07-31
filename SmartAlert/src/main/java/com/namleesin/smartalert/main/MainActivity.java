@@ -1,8 +1,5 @@
 package com.namleesin.smartalert.main;
 
-import java.util.ArrayList;
-import java.util.Locale;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -44,11 +41,13 @@ import com.namleesin.smartalert.utils.NotiAlertState;
 import com.namleesin.smartalert.utils.PFMgr;
 import com.namleesin.smartalert.utils.PFValue;
 
+import java.util.ArrayList;
+import java.util.Locale;
+
 
 
 public class MainActivity extends FragmentActivity implements LoaderCallbacks<ArrayList<NotiInfoData>>, NavigationView.OnNavigationItemSelectedListener {
 	private final String AD_UNIT_ID = "ca-app-pub-1698382082790983/2052368153";
-	private InterstitialAd interstitialAd = null;
 
 	private DbHandler mDBHandler;
 	private NotiDataListAdapter mAdapter;
@@ -130,8 +129,8 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 			return;
 		}
 
+		final InterstitialAd interstitialAd = new InterstitialAd(this);
 		AdRequest adRequest = new AdRequest.Builder().build();
-		interstitialAd = new InterstitialAd(this);
 		interstitialAd.setAdUnitId(AD_UNIT_ID);
 		interstitialAd.loadAd(adRequest);
 		interstitialAd.setAdListener(new AdListener() {
@@ -148,10 +147,13 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 
 			@Override
 			public void onAdFailedToLoad(int errorCode) {
+				finish();
+			}
+			@Override
+			public void onAdClosed() {
+				finish();
 			}
 		});
-
-		super.onBackPressed();
 	}
 
 	private void initView()
