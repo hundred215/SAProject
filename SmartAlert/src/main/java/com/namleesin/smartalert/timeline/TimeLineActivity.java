@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,6 +41,7 @@ public class TimeLineActivity extends FragmentActivity implements LoaderManager.
     private TimelineListAdapter mAdapter;
     private ListView mTimelineListView;
     private ProgressBar mProgressbar;
+    private AdView mBanner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -84,11 +86,29 @@ public class TimeLineActivity extends FragmentActivity implements LoaderManager.
         LinearLayout lview = (LinearLayout)findViewById(R.id.emptytimelinelist);
         mTimelineListView.setEmptyView(lview);
 
-        AdView adView = (AdView) findViewById(R.id.adView);
+        mBanner = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+        mBanner.loadAd(adRequest);
 
         getSupportLoaderManager().initLoader(LOADER_ID, null, this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mBanner.resume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mBanner.pause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mBanner.destroy();
     }
 
     @Override
@@ -125,7 +145,7 @@ public class TimeLineActivity extends FragmentActivity implements LoaderManager.
         switch (item.getItemId()){
             case R.id.delete:
                 DbHandler db = new DbHandler(this);
-                db.deleteDB(DBValue.TYPE_DELETE_TIMELINE_ALL, null);
+                db.deleteDB(DBValue.TYPE_DELETE_TIMELINE_EACH, null);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -138,10 +158,10 @@ public class TimeLineActivity extends FragmentActivity implements LoaderManager.
         switch (v.getId())
         {
             case R.id.back_arrow:
-                finish();
                 break;
             case R.id.btn_delete:
                 String date = (String) v.getTag();
+                Log.d("NJ LEE", "delete : "+date);
                 db.deleteDB(DBValue.TYPE_DELETE_TIMELINE_EACH, date);
                 getSupportLoaderManager().restartLoader(LOADER_ID, null, this);
                 break;

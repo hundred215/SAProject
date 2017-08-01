@@ -130,6 +130,12 @@ public class DbHandler
 			case DBValue.TYPE_DELETE_FILTER_KEYWORD:
 				result = deleteFilterKeywordTable((KeywordData) aObject);
 				break;
+			case DBValue.TYPE_DELETE_TIMELINE_EACH:
+				result = deleteTimeTableEach((String)aObject);
+				break;
+			case DBValue.TYPE_DELETE_TIMELINE_WITH:
+                result = deleteTimeTableWith((String)aObject);
+				break;
 			default:
 				break;
 		}
@@ -146,6 +152,18 @@ public class DbHandler
 	{
 		String[] params = getFilterKeywordData(aKeywordData);
 		return handleDBData(DBValue.SQL_DELETE_FILTER_KEYWORD, params);
+	}
+
+	private int deleteTimeTableEach(String time)
+	{
+		String[] params = {time,};
+		return handleDBData(DBValue.SQL_DELETE_TIMELINE_EACH, params);
+	}
+
+	private int deleteTimeTableWith(String params){
+		String sql = DBValue.SQL_DELETE_TIMELINE_WITH+params;
+		Log.d("NJ LEE", "deleteTimeTableWith : "+sql);
+		return handleDBData(sql, null);
 	}
 
 	private int insertNotiInfoTable(NotiData aNotiData)
@@ -263,8 +281,11 @@ public class DbHandler
 		}
 		
 		mDbManager.beginTransaction();
-		
-		if (mDbManager.execute(aSql, aParams) < 0)
+
+		if(aParams == null){
+			result = mDbManager.execute(aSql);
+		}
+		else if (mDbManager.execute(aSql, aParams) < 0)
 		{
 			result = DBValue.FAILURE;
 		}

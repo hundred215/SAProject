@@ -57,6 +57,8 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 	private View mRemainLayout;
 	private boolean mIsListExpanded = false;
 	private ActionBarView mActionbar;
+	private AdView mAdView;
+	private boolean isRequestEndingAd = false;
 
 	private ViewTreeObserver.OnGlobalLayoutListener mLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
 		@Override
@@ -74,7 +76,7 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		AdView mAdView = (AdView) findViewById(R.id.adView);
+		mAdView = (AdView) findViewById(R.id.adView);
 		AdRequest adRequest = new AdRequest.Builder().build();
 		mAdView.loadAd(adRequest);
 
@@ -82,6 +84,12 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 		initView();
 
 		OpenActivity.startSplashScreenActivity(this);
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		mAdView.pause();
 	}
 
 	private void updateCounts()
@@ -107,6 +115,8 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 	{
 		super.onResume();
 
+		mAdView.resume();
+
 		updatePrivacyModeIcon();
 
 		getSupportLoaderManager().initLoader(0, null, this).forceLoad();
@@ -126,6 +136,10 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 		if (drawer.isDrawerOpen(GravityCompat.START))
 		{
 			drawer.closeDrawer(GravityCompat.START);
+			return;
+		}
+
+		if(isRequestEndingAd){
 			return;
 		}
 
@@ -154,6 +168,7 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 				finish();
 			}
 		});
+		isRequestEndingAd = true;
 	}
 
 	private void initView()
@@ -384,6 +399,7 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 	public void onDestroy()
 	{
 		super.onDestroy();
+		mAdView.destroy();
 	}
 
 	@Override
