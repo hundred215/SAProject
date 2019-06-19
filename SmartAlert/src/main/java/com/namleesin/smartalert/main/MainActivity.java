@@ -3,12 +3,15 @@ package com.namleesin.smartalert.main;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.LoaderManager.LoaderCallbacks;
-import android.support.v4.content.Loader;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
+
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.material.navigation.NavigationView;
+
+import androidx.loader.app.LoaderManager.LoaderCallbacks;
+import androidx.loader.content.Loader;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -46,8 +49,9 @@ import java.util.Locale;
 
 
 
-public class MainActivity extends FragmentActivity implements LoaderCallbacks<ArrayList<NotiInfoData>>, NavigationView.OnNavigationItemSelectedListener {
-	private final String AD_UNIT_ID = "ca-app-pub-1698382082790983/2052368153";
+public class MainActivity extends AppCompatActivity implements LoaderCallbacks<ArrayList<NotiInfoData>>, NavigationView.OnNavigationItemSelectedListener {
+	//private final String AD_UNIT_ID = "ca-app-pub-1698382082790983/2052368153";
+	private final String AD_UNIT_ID = "ca-app-pub-1698382082790983~3217070150";
 
 	private DbHandler mDBHandler;
 	private NotiDataListAdapter mAdapter;
@@ -75,6 +79,7 @@ public class MainActivity extends FragmentActivity implements LoaderCallbacks<Ar
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		MobileAds.initialize(this, AD_UNIT_ID);
 
 		mAdView = (AdView) findViewById(R.id.adView);
 		AdRequest adRequest = new AdRequest.Builder().build();

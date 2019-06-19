@@ -8,12 +8,13 @@ import java.util.List;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.util.Log;
 
 import com.namleesin.smartalert.dbmgr.DBValue;
 import com.namleesin.smartalert.dbmgr.DbHandler;
 
-public class NotiDataLoader extends android.support.v4.content.AsyncTaskLoader<ArrayList<NotiInfoData>>
+import androidx.loader.content.AsyncTaskLoader;
+
+public class NotiDataLoader extends AsyncTaskLoader<ArrayList<NotiInfoData>>
 {
 	private PackageManager mPkgMgr;
 	private DbHandler mDbHandler;

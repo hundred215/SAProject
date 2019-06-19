@@ -2,7 +2,7 @@ package com.namleesin.smartalert.commonView;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v4.view.MotionEventCompat;
+import androidx.core.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;

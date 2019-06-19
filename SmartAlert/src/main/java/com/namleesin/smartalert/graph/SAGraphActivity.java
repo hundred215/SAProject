@@ -1,6 +1,5 @@
 package com.namleesin.smartalert.graph;
 
-import android.app.Activity;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -9,6 +8,7 @@ import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -28,7 +28,7 @@ import com.namleesin.smartalert.settingmgr.ListViewItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SAGraphActivity extends Activity implements View.OnClickListener {
+public class SAGraphActivity extends AppCompatActivity implements View.OnClickListener {
     private int mYMaxCount = 1000;
     private ListView mListView = null;
     private GraphListViewAdapter mAdapter = null;

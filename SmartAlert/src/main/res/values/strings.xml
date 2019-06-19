@@ -80,4 +80,5 @@
     <string name = "STR_PRIVACY_MODE"> Privacy Mode </string>>
     <string name = "STR_PRIVACY_MODE_ON"> You are in the privacy mode. All notifications will be blocked. </string>>
     <string name = "STR_PRIVACY_MODE_OFF"> The Privacy mode is turned off. </string>>
+    <string name = "STR_DELETE">Delete All</string>
 </resources>

@@ -5,22 +5,20 @@ import android.app.Activity;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Context;
-import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+
+import androidx.legacy.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.namleesin.smartalert.R;
 
-public class GuideMgrActivity extends Activity
+public class GuideMgrActivity extends AppCompatActivity
 {
     private SectionsPagerAdapter mSectionsPagerAdapter = null;
     private static ViewPager mViewPager = null;

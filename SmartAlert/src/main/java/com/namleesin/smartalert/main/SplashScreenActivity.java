@@ -3,11 +3,12 @@ package com.namleesin.smartalert.main;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.namleesin.smartalert.R;
 
 
-public class SplashScreenActivity extends Activity 
+public class SplashScreenActivity extends AppCompatActivity
 {
 	private Handler mHandler = null;
 	

@@ -1,24 +1,18 @@
 package com.namleesin.smartalert.main;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
-import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
-import android.view.MotionEvent;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 
 import com.namleesin.smartalert.R;
 import com.namleesin.smartalert.utils.PFMgr;
 import com.namleesin.smartalert.utils.PFValue;
 
-public class MainGuideActivity extends Activity
+public class MainGuideActivity extends AppCompatActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)

@@ -9,7 +9,9 @@ import com.namleesin.smartalert.dbmgr.DbHandler;
 
 import java.util.ArrayList;
 
-public class TimelineDataLoader extends android.support.v4.content.AsyncTaskLoader<ArrayList<TimelineData>>
+import androidx.loader.content.AsyncTaskLoader;
+
+public class TimelineDataLoader extends AsyncTaskLoader<ArrayList<TimelineData>>
 {
 	private PackageManager mPkgMgr;
 	private DbHandler mDbHandler;

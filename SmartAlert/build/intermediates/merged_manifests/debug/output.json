@@ -1,0 +1,1 @@
+[{"outputType":{"type":"MERGED_MANIFESTS"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":102,"versionName":"1.0.102","enabled":true,"outputFile":"smartAlert-debug.apk","fullName":"debug","baseName":"debug"},"path":"AndroidManifest.xml","properties":{"packageId":"com.hundred215.notiEDA","split":"","minSdkVersion":"19"}}]
